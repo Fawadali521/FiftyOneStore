@@ -30,3 +30,8 @@ flutter:
     - assets/images/
     - assets/logo/
     - assets/vectors/
+
+  fonts:
+    - family: Comfort
+      fonts:
+        - asset: fonts/Comfortaa-Regular.ttf

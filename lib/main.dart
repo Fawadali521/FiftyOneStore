@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: '51Stores',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // fontFamily: 'Comforta',
+        fontFamily: 'Comfort',
         scaffoldBackgroundColor: Colors.white,
         brightness: Brightness.light,
         useMaterial3: true,
