@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 const double mobileBreakpoint = 600.0;
@@ -14,7 +16,6 @@ class ResponsiveLayout extends StatelessWidget {
   final Widget mobile;
   final Widget tablet;
   final Widget desktop;
-
   const ResponsiveLayout({
     super.key,
     required this.mobile,
@@ -26,7 +27,7 @@ class ResponsiveLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        double width = constraints.maxWidth;
+        double width = MediaQuery.sizeOf(context).width;
         if (isMobile(width)) {
           return mobile;
         } else if (isTablet(width)) {

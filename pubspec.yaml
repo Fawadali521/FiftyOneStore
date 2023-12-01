@@ -15,6 +15,9 @@ dependencies:
   pinput: ^3.0.1
   avatar_glow: ^2.0.2
   fluttertoast: ^8.2.2
+  get: ^4.6.6
+  cloud_firestore: ^4.13.3
+
 
 dev_dependencies:
   flutter_test:
@@ -32,6 +35,13 @@ flutter:
     - assets/vectors/
 
   fonts:
-    - family: Comfort
+    - family: Poppins
       fonts:
-        - asset: fonts/Comfortaa-Regular.ttf
+        - asset: assets/fonts/Poppins-Thin.ttf
+        - asset: assets/fonts/Poppins-Light.ttf
+        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-Medium.ttf
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+        - asset: assets/fonts/Poppins-Bold.ttf
+        - asset: assets/fonts/Poppins-ExtraBold.ttf
+        - asset: assets/fonts/Poppins-Black.ttf

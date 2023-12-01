@@ -1,6 +1,9 @@
-import 'package:fiftyonestores/LandingPage.dart';
+import 'package:fiftyonestores/src/app/auth/signup/signup_view.dart';
+import 'package:fiftyonestores/src/services/languages.dart';
+import 'package:fiftyonestores/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -8,24 +11,26 @@ void main() {
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
       overlays: [SystemUiOverlay.top]);
-  runApp(const MyApp());
+  runApp(const FiftyOneStores());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class FiftyOneStores extends StatelessWidget {
+  const FiftyOneStores({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: '51Stores',
       debugShowCheckedModeBanner: false,
+      translations: Languages(),
+      locale: const Locale('en', 'US'),
+      fallbackLocale: const Locale('en', 'US'),
       theme: ThemeData(
-        fontFamily: 'Comfort',
-        scaffoldBackgroundColor: Colors.white,
-        brightness: Brightness.light,
+        fontFamily: 'Poppins',
+        scaffoldBackgroundColor: Palette.bgLightWhiteColor,
         useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const LandingPage(),
+      home: SignUpView(),
     );
   }
 }
