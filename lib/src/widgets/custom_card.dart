@@ -40,7 +40,6 @@ class CustomCard extends StatelessWidget {
                 style: TextStyles.headlineLarge,
               ),
             ),
-            SizedBox(height: sH(32)),
             data,
           ],
         ),

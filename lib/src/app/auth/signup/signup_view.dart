@@ -1,3 +1,4 @@
+import 'package:fiftyonestores/src/app/auth/select_business/business_type.dart';
 import 'package:fiftyonestores/src/app/auth/signin/signin_view.dart';
 import 'package:fiftyonestores/src/states/signup/controller.dart';
 
@@ -138,7 +139,9 @@ class SignUpView extends StatelessWidget {
           ),
           SizedBox(height: sH(32)),
           CustomButton(
-            onTap: () {},
+            onTap: () {
+              Get.to(() => BusinessType());
+            },
             text: 'signup'.tr,
           ),
           SizedBox(height: sH(32)),

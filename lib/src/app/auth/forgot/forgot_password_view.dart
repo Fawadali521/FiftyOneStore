@@ -83,7 +83,6 @@ class ForgotPasswordView extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: sH(32)),
         ],
       ),
     );

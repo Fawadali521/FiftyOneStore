@@ -83,7 +83,6 @@ class ForgotOtpView extends StatelessWidget {
             },
             text: 'otpButton'.tr,
           ),
-          SizedBox(height: sH(32)),
         ],
       ),
     );

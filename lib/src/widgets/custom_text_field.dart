@@ -74,21 +74,21 @@ class CustomTextField extends StatelessWidget {
         hintStyle: TextStyles.titleSmall.copyWith(
           color: Palette.grayColor,
         ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(
+        enabledBorder: const OutlineInputBorder(
+          borderRadius: BorderStyles.normal,
+          borderSide: BorderSide(
             color: Palette.bgTextFeildColor,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(
+        focusedBorder: const OutlineInputBorder(
+          borderRadius: BorderStyles.normal,
+          borderSide: BorderSide(
             color: Palette.bgTextFeildColor,
           ),
         ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(
+        border: const OutlineInputBorder(
+          borderRadius: BorderStyles.normal,
+          borderSide: BorderSide(
             color: Palette.bgTextFeildColor,
           ),
         ),

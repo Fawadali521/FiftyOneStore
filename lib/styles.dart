@@ -52,7 +52,8 @@ class TextStyles {
 }
 
 class BorderStyles {
-  static const normal = BorderRadius.all(Radius.circular(10));
+  static const normal = BorderRadius.all(Radius.circular(8));
+  static const medium = BorderRadius.all(Radius.circular(12));
 }
 
 class Palette {

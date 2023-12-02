@@ -1,3 +1,4 @@
+import 'package:fiftyonestores/src/app/auth/signin/signin_view.dart';
 import 'package:fiftyonestores/src/states/forgot/controller.dart';
 
 import '../../index.dart';
@@ -51,6 +52,7 @@ class ForgotUpdateView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
+          SizedBox(height: sH(12)),
           Text(
             "Updatepasswordbody".tr,
             style: TextStyles.titleSmall.copyWith(
@@ -112,7 +114,9 @@ class ForgotUpdateView extends StatelessWidget {
           ),
           SizedBox(height: sH(32)),
           CustomButton(
-            onTap: () {},
+            onTap: () {
+              Get.offAll(() => SignInView());
+            },
             text: 'Continue'.tr,
           ),
         ],
