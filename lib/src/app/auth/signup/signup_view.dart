@@ -53,6 +53,7 @@ class SignUpView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
+          SizedBox(height: sH(32)),
           CustomTextField(
             hintText: 'email'.tr,
             onChange: (value) {
