@@ -15,26 +15,62 @@ class BusinessInfoView extends StatelessWidget {
           key: controller.orgInfo,
           child: ResponsiveLayout(
             /// mobile view
-            mobile: Center(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: sW(32)),
-                child: _customOrganizationInformation(),
+            mobile: Padding(
+              padding: EdgeInsets.all(sW(32)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomBackButton(
+                    onPressed: () => Get.back(),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: _customOrganizationInformation(),
+                    ),
+                  ),
+                ],
               ),
             ),
 
             /// tablet view
-            tablet: Center(
-              child: SizedBox(
-                width: 540,
-                child: _customOrganizationInformation(),
+            tablet: Padding(
+              padding: EdgeInsets.all(sH(40)),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomBackButton(
+                    onPressed: () => Get.back(),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: SizedBox(
+                        width: 540,
+                        child: _customOrganizationInformation(),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
 
             /// desktop view
-            desktop: Center(
-              child: SizedBox(
-                width: 540,
-                child: _customOrganizationInformation(),
+            desktop: Padding(
+              padding: EdgeInsets.all(sH(80)),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomBackButton(
+                    onPressed: () => Get.back(),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: SizedBox(
+                        width: 540,
+                        child: _customOrganizationInformation(),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

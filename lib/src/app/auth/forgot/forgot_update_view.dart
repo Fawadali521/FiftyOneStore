@@ -15,26 +15,62 @@ class ForgotUpdateView extends StatelessWidget {
             key: controller.forgotUpdateFormKey,
             child: ResponsiveLayout(
               /// mobile view
-              mobile: Center(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: sW(32)),
-                  child: _customForgotUpdatePassword(),
+              mobile: Padding(
+                padding: EdgeInsets.all(sW(32)),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomBackButton(
+                      onPressed: () => Get.back(),
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: _customForgotUpdatePassword(),
+                      ),
+                    ),
+                  ],
                 ),
               ),
 
               /// tablet view
-              tablet: Center(
-                child: SizedBox(
-                  width: 540,
-                  child: _customForgotUpdatePassword(),
+              tablet: Padding(
+                padding: EdgeInsets.all(sH(40)),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomBackButton(
+                      onPressed: () => Get.back(),
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: SizedBox(
+                          width: 540,
+                          child: _customForgotUpdatePassword(),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
 
               /// desktop view
-              desktop: Center(
-                child: SizedBox(
-                  width: 540,
-                  child: _customForgotUpdatePassword(),
+              desktop: Padding(
+                padding: EdgeInsets.all(sH(80)),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomBackButton(
+                      onPressed: () => Get.back(),
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: SizedBox(
+                          width: 540,
+                          child: _customForgotUpdatePassword(),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

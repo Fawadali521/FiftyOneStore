@@ -13,26 +13,62 @@ class ForgotOtpView extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) => Scaffold(
         body: ResponsiveLayout(
           /// mobile view
-          mobile: Center(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: sW(32)),
-              child: _customOtpView(),
+          mobile: Padding(
+            padding: EdgeInsets.all(sW(32)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomBackButton(
+                  onPressed: () => Get.back(),
+                ),
+                Expanded(
+                  child: Center(
+                    child: _customOtpView(),
+                  ),
+                ),
+              ],
             ),
           ),
 
           /// tablet view
-          tablet: Center(
-            child: SizedBox(
-              width: 540,
-              child: _customOtpView(),
+          tablet: Padding(
+            padding: EdgeInsets.all(sH(40)),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomBackButton(
+                  onPressed: () => Get.back(),
+                ),
+                Expanded(
+                  child: Center(
+                    child: SizedBox(
+                      width: 540,
+                      child: _customOtpView(),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
 
           /// desktop view
-          desktop: Center(
-            child: SizedBox(
-              width: 540,
-              child: _customOtpView(),
+          desktop: Padding(
+            padding: EdgeInsets.all(sH(80)),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomBackButton(
+                  onPressed: () => Get.back(),
+                ),
+                Expanded(
+                  child: Center(
+                    child: SizedBox(
+                      width: 540,
+                      child: _customOtpView(),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),

@@ -24,6 +24,8 @@ class FiftyOneStores extends StatelessWidget {
       translations: Languages(),
       locale: const Locale('en', 'US'),
       fallbackLocale: const Locale('en', 'US'),
+      defaultTransition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 500),
       theme: ThemeData(
         fontFamily: 'Poppins',
         scaffoldBackgroundColor: Palette.bgLightWhiteColor,

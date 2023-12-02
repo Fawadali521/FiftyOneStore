@@ -15,26 +15,62 @@ class BranchManagerDetailsView extends StatelessWidget {
           key: controller.branchDetails,
           child: ResponsiveLayout(
             /// mobile view
-            mobile: Center(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: sW(32)),
-                child: _customBranManagerchDetails(),
+            mobile: Padding(
+              padding: EdgeInsets.all(sW(32)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomBackButton(
+                    onPressed: () => Get.back(),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: _customBranManagerchDetails(),
+                    ),
+                  ),
+                ],
               ),
             ),
 
             /// tablet view
-            tablet: Center(
-              child: SizedBox(
-                width: 540,
-                child: _customBranManagerchDetails(),
+            tablet: Padding(
+              padding: EdgeInsets.all(sH(40)),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomBackButton(
+                    onPressed: () => Get.back(),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: SizedBox(
+                        width: 540,
+                        child: _customBranManagerchDetails(),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
 
             /// desktop view
-            desktop: Center(
-              child: SizedBox(
-                width: 540,
-                child: _customBranManagerchDetails(),
+            desktop: Padding(
+              padding: EdgeInsets.all(sH(80)),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomBackButton(
+                    onPressed: () => Get.back(),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: SizedBox(
+                        width: 540,
+                        child: _customBranManagerchDetails(),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
