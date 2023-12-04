@@ -1,11 +1,11 @@
-import 'package:fiftyonestores/src/modules/auth/forgot/forgot_update_view.dart';
+import 'package:fiftyonestores/src/modules/auth/forgot/forgot_update.dart';
 import 'package:fiftyonestores/src/states/forgot/controller.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../index.dart';
 
-class ForgotOtpView extends StatelessWidget {
-  ForgotOtpView({super.key});
+class ForgotOtp extends StatelessWidget {
+  ForgotOtp({super.key});
   final ForgotController controller = Get.put(ForgotController());
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,6 @@ class ForgotOtpView extends StatelessWidget {
             "otpBodyText".tr,
             style: TextStyles.titleSmall.copyWith(
               color: Palette.grayColor,
-              fontSize: 16,
             ),
           ),
           SizedBox(height: sH(32)),
@@ -115,7 +114,7 @@ class ForgotOtpView extends StatelessWidget {
           SizedBox(height: sH(32)),
           CustomButton(
             onTap: () {
-              Get.to(() => ForgotUpdateView());
+              Get.to(() => ForgotUpdate());
             },
             text: 'otpButton'.tr,
           ),

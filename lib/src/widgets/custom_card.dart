@@ -37,7 +37,9 @@ class CustomCard extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: Text(
                 title,
-                style: TextStyles.headlineLarge,
+                style: TextStyles.headlineLarge.copyWith(
+                  fontSize: 24,
+                ),
               ),
             ),
             data,

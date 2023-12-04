@@ -1,10 +1,10 @@
-import 'package:fiftyonestores/src/modules/auth/signin/signin_view.dart';
+import 'package:fiftyonestores/src/modules/auth/signin/signin.dart';
 import 'package:fiftyonestores/src/states/forgot/controller.dart';
 
 import '../../index.dart';
 
-class ForgotUpdateView extends StatelessWidget {
-  ForgotUpdateView({super.key});
+class ForgotUpdate extends StatelessWidget {
+  ForgotUpdate({super.key});
   final ForgotController controller = Get.put(ForgotController());
   @override
   Widget build(BuildContext context) {
@@ -93,7 +93,6 @@ class ForgotUpdateView extends StatelessWidget {
             "Updatepasswordbody".tr,
             style: TextStyles.titleSmall.copyWith(
               color: Palette.grayColor,
-              fontSize: 16,
             ),
           ),
           SizedBox(height: sH(32)),
@@ -151,7 +150,7 @@ class ForgotUpdateView extends StatelessWidget {
           SizedBox(height: sH(32)),
           CustomButton(
             onTap: () {
-              Get.offAll(() => SignInView());
+              Get.offAll(() => SignIn());
             },
             text: 'Continue'.tr,
           ),

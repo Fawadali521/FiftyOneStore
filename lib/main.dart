@@ -1,4 +1,4 @@
-import 'package:fiftyonestores/src/modules/auth/signup/signup_view.dart';
+import 'package:fiftyonestores/src/modules/dashboard/main.dart';
 import 'package:fiftyonestores/src/services/languages.dart';
 import 'package:fiftyonestores/styles.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +32,7 @@ class FiftyOneStores extends StatelessWidget {
         useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SignUpView(),
+      home: const Main(),
     );
   }
 }

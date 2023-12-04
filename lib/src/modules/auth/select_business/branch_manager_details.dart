@@ -1,10 +1,10 @@
-import 'package:fiftyonestores/src/modules/auth/signin/signin_view.dart';
-import 'package:fiftyonestores/src/states/select_business/controller.dart';
+import 'package:fiftyonestores/src/modules/auth/signin/signin.dart';
+import 'package:fiftyonestores/src/states/selecte_business/controller.dart';
 
 import '../../index.dart';
 
-class BranchManagerDetailsView extends StatelessWidget {
-  BranchManagerDetailsView({super.key});
+class BranchManagerDetails extends StatelessWidget {
+  BranchManagerDetails({super.key});
   final SelectBusinessController controller =
       Get.put(SelectBusinessController());
   @override
@@ -135,7 +135,7 @@ class BranchManagerDetailsView extends StatelessWidget {
           SizedBox(height: sH(32)),
           CustomButton(
             onTap: () {
-              Get.to(() => SignInView());
+              Get.to(() => SignIn());
             },
             text: 'Next'.tr,
           ),

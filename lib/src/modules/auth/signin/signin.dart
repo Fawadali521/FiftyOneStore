@@ -1,11 +1,12 @@
-import 'package:fiftyonestores/src/modules/auth/forgot/forgot_password_view.dart';
-import 'package:fiftyonestores/src/modules/auth/signup/signup_view.dart';
+import 'package:fiftyonestores/src/modules/auth/forgot/forgot_password.dart';
+import 'package:fiftyonestores/src/modules/auth/signup/signup.dart';
+import 'package:fiftyonestores/src/modules/dashboard/main.dart';
 import 'package:fiftyonestores/src/states/signin/controller.dart';
 
 import '../../index.dart';
 
-class SignInView extends StatelessWidget {
-  SignInView({super.key});
+class SignIn extends StatelessWidget {
+  SignIn({super.key});
   final LoginController controller = Get.put(LoginController());
 
   @override
@@ -107,7 +108,7 @@ class SignInView extends StatelessWidget {
               style: TextStyles.titleSmall,
             ),
             InkWell(
-              onTap: () => Get.to(() => SignUpView()),
+              onTap: () => Get.to(() => SignUp()),
               child: Text(
                 "signup".tr,
                 style: TextStyles.titleSmall.copyWith(
@@ -118,7 +119,7 @@ class SignInView extends StatelessWidget {
             const Spacer(),
             MediaQuery.of(context).size.width > 600
                 ? InkWell(
-                    onTap: () => Get.to(() => ForgotPasswordView()),
+                    onTap: () => Get.to(() => ForgotPassword()),
                     child: Text(
                       "forgot".tr,
                       style: TextStyles.titleSmall.copyWith(
@@ -134,7 +135,7 @@ class SignInView extends StatelessWidget {
             : const SizedBox.shrink(),
         MediaQuery.of(context).size.width <= 600
             ? InkWell(
-                onTap: () => Get.to(() => ForgotPasswordView()),
+                onTap: () => Get.to(() => ForgotPassword()),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -148,7 +149,9 @@ class SignInView extends StatelessWidget {
             : const SizedBox.shrink(),
         SizedBox(height: sH(32)),
         CustomButton(
-          onTap: () {},
+          onTap: () {
+            Get.to(() => const Main());
+          },
           text: 'signInButton'.tr,
         ),
         SizedBox(height: sH(32)),

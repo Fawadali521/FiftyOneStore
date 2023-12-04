@@ -1,4 +1,4 @@
-import 'package:fiftyonestores/src/states/select_business/state.dart';
+import 'package:fiftyonestores/src/states/selecte_business/state.dart';
 
 import '../../modules/index.dart';
 

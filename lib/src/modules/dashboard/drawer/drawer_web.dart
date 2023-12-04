@@ -15,7 +15,7 @@ class _DrawerWebState extends State<DrawerWeb> {
   Widget build(BuildContext context) {
     return Obx(
       () => SizedBox(
-        width: controller.state.isExpand ? 300 : 140,
+        width: controller.state.isExpand ? 270 : 110,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -27,7 +27,7 @@ class _DrawerWebState extends State<DrawerWeb> {
                   // all items of the drawer
                   //
                   Container(
-                    width: controller.state.isExpand ? null : 140,
+                    width: controller.state.isExpand ? null : 110,
                     padding: controller.state.isExpand
                         ? EdgeInsets.zero
                         : const EdgeInsets.only(

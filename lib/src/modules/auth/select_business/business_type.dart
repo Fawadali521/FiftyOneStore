@@ -1,5 +1,5 @@
 import 'package:fiftyonestores/src/modules/auth/select_business/business_info.dart';
-import 'package:fiftyonestores/src/states/select_business/controller.dart';
+import 'package:fiftyonestores/src/states/selecte_business/controller.dart';
 
 import '../../index.dart';
 
@@ -53,7 +53,6 @@ class BusinessType extends StatelessWidget {
             "businessTypeBodyText".tr,
             style: TextStyles.titleSmall.copyWith(
               color: Palette.grayColor,
-              fontSize: 16,
             ),
           ),
           SizedBox(height: sH(32)),
@@ -80,7 +79,7 @@ class BusinessType extends StatelessWidget {
                   child: CustomSelectBusinessBustton(
                     onTap: controller.selectTypeIndividual,
                     title: 'individual'.tr,
-                    icon: corporateIcon,
+                    icon: individualIcon,
                     backGroundColor: controller.state.isIndividual
                         ? Palette.bgTextFeildColor
                         : Palette.bgWhiteColor,
@@ -95,7 +94,7 @@ class BusinessType extends StatelessWidget {
           SizedBox(height: sH(32)),
           CustomButton(
             onTap: () {
-              Get.to(() => BusinessInfoView());
+              Get.to(() => BusinessInfo());
             },
             text: 'Next'.tr,
           ),

@@ -1,11 +1,11 @@
 import 'package:fiftyonestores/src/modules/auth/select_business/business_type.dart';
-import 'package:fiftyonestores/src/modules/auth/signin/signin_view.dart';
+import 'package:fiftyonestores/src/modules/auth/signin/signin.dart';
 import 'package:fiftyonestores/src/states/signup/controller.dart';
 
 import '../../index.dart';
 
-class SignUpView extends StatelessWidget {
-  SignUpView({super.key});
+class SignUp extends StatelessWidget {
+  SignUp({super.key});
   final SignUpController controller = Get.put(SignUpController());
   @override
   Widget build(BuildContext context) {
@@ -128,7 +128,7 @@ class SignUpView extends StatelessWidget {
                 style: TextStyles.titleSmall,
               ),
               InkWell(
-                onTap: () => Get.to(() => SignInView()),
+                onTap: () => Get.to(() => SignIn()),
                 child: Text(
                   "signin".tr,
                   style: TextStyles.titleSmall.copyWith(

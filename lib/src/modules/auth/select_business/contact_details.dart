@@ -1,16 +1,16 @@
 import 'package:fiftyonestores/src/modules/auth/select_business/setting_configuration.dart';
-import 'package:fiftyonestores/src/states/select_business/controller.dart';
+import 'package:fiftyonestores/src/states/selecte_business/controller.dart';
 
 import '../../index.dart';
 
-class ContactDetailsView extends StatefulWidget {
-  const ContactDetailsView({super.key});
+class ContactDetails extends StatefulWidget {
+  const ContactDetails({super.key});
 
   @override
-  State<ContactDetailsView> createState() => _ContactDetailsViewState();
+  State<ContactDetails> createState() => _ContactDetailsState();
 }
 
-class _ContactDetailsViewState extends State<ContactDetailsView> {
+class _ContactDetailsState extends State<ContactDetails> {
   final SelectBusinessController controller =
       Get.put(SelectBusinessController());
 
@@ -147,7 +147,7 @@ class _ContactDetailsViewState extends State<ContactDetailsView> {
                 color: Palette.blackColor.withOpacity(0.7),
               ),
             ),
-            SizedBox(height: sH(6)),
+            SizedBox(height: sH(10)),
             CustomTextField(
               hintText: 'Handler name'.tr,
               onChange: (value) {
@@ -221,7 +221,7 @@ class _ContactDetailsViewState extends State<ContactDetailsView> {
             SizedBox(height: sH(32)),
             CustomButton(
               onTap: () {
-                Get.to(() => SettingConfigurationView());
+                Get.to(() => SettingConfiguration());
               },
               text: 'Next'.tr,
             ),

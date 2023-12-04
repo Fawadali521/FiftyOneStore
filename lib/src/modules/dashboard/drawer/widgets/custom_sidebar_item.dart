@@ -59,8 +59,8 @@ class CustomSideBarItem extends StatelessWidget {
               ),
             )
           : Container(
-              margin: const EdgeInsets.only(bottom: 24),
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+              margin: const EdgeInsets.only(bottom: 18),
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 14),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 color: isSelected
@@ -69,8 +69,6 @@ class CustomSideBarItem extends StatelessWidget {
               ),
               child: Image.asset(
                 icon,
-                height: 40,
-                width: 40,
                 color: isSelected
                     ? const Color(0xFF47C03F)
                     : const Color(0xFFA1A1A1),

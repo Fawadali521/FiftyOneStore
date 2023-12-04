@@ -1,10 +1,10 @@
 import 'package:fiftyonestores/src/modules/auth/select_business/contact_details.dart';
-import 'package:fiftyonestores/src/states/select_business/controller.dart';
+import 'package:fiftyonestores/src/states/selecte_business/controller.dart';
 
 import '../../index.dart';
 
-class BusinessInfoView extends StatelessWidget {
-  BusinessInfoView({super.key});
+class BusinessInfo extends StatelessWidget {
+  BusinessInfo({super.key});
   final SelectBusinessController controller =
       Get.put(SelectBusinessController());
   @override
@@ -120,7 +120,7 @@ class BusinessInfoView extends StatelessWidget {
           SizedBox(height: sH(32)),
           CustomButton(
             onTap: () {
-              Get.to(() => const ContactDetailsView());
+              Get.to(() => const ContactDetails());
             },
             text: 'Next'.tr,
           ),

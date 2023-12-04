@@ -46,11 +46,11 @@ class TextStyles {
   //   fontSize: 28,
   //   color: Colors.black,
   // );
-  // static const bodyMedium = TextStyle(
-  //   fontWeight: FontWeight.w400,
-  //   fontSize: 14,
-  //   color: Colors.black,
-  // );
+  static const bodyMedium = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 12,
+    color: Colors.black,
+  );
   // static const bodySmall = TextStyle(
   //   fontWeight: FontWeight.w400,
   //   fontSize: 14,
@@ -71,6 +71,7 @@ class Palette {
   static const Color grayColor = Color(0xFFA1A1A1);
   static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color blackColor = Color(0xFF000000);
+  static const Color blueColor = Color(0xFF1C274C);
 }
 
 sH(double value) {
