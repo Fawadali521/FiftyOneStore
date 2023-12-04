@@ -2,10 +2,12 @@ const String icons = "assets/icons";
 const String images = "assets/images";
 const String logos = "assets/logo";
 const String vectors = "assets/vectors";
+const String fontFamilyPoppins = "Poppins";
 //
 // logos
 //
 const String logo = "$logos/logo.png";
+const String logo51 = "$logos/51_logo.png";
 
 ///
 /// icons
@@ -28,3 +30,8 @@ const String handlerIcon = "$icons/handler.png";
 const String retailerIcon = "$icons/retailer.png";
 const String barIcon = "$icons/bar.png";
 const String restaurantIcon = "$icons/restaurant.png";
+const String dashboardIcon = "$icons/dashboard.png";
+const String primeCategoryIcon = "$icons/prime_category.png";
+const String subCategoryIcon = "$icons/subcategory.png";
+const String productIcon = "$icons/product.png";
+const String stockAdjustmentIcon = "$icons/stock_adjustment.png";

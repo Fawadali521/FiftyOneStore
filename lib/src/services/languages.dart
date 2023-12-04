@@ -60,7 +60,13 @@ class Languages extends Translations {
           'Retailer': 'Retailer',
           'Wine Shop/Bar': 'Wine Shop/Bar',
           'Select business type': 'Select business type',
-
+          'Dashboard': 'Dashboard',
+          'Prime category': 'Prime category',
+          'Subcategory': 'Subcategory',
+          'Products': 'Products',
+          'Stock adjustment': 'Stock adjustment',
+          'Product management': 'Product management',
+          'Category management': 'Category management',
         },
       };
 }

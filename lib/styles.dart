@@ -1,4 +1,5 @@
 //
+import 'package:fiftyonestores/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,32 +7,38 @@ class TextStyles {
   static const headlineLarge = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 28,
+    fontFamily: fontFamilyPoppins,
     color: Colors.black,
   );
   static const headlineMedium = TextStyle(
     fontWeight: FontWeight.w700,
     fontSize: 18,
+    fontFamily: fontFamilyPoppins,
     color: Colors.black,
   );
   static const headlineSmall = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 14,
+    fontFamily: fontFamilyPoppins,
     color: Colors.black,
   );
 
   static const titleLarge = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 20,
+    fontFamily: fontFamilyPoppins,
     color: Colors.black,
   );
   static const titleMedium = TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 16,
+    fontFamily: fontFamilyPoppins,
     color: Colors.black,
   );
   static const titleSmall = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 14,
+    fontFamily: fontFamilyPoppins,
     color: Colors.black,
   );
   // static const bodyLarge = TextStyle(
