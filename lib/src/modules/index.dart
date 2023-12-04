@@ -1,10 +1,10 @@
 export 'package:fiftyonestores/image_strings.dart';
 export 'package:fiftyonestores/responsive/ResponsiveManager.dart';
-export 'package:fiftyonestores/src/utils/loading.dart';
-export 'package:fiftyonestores/src/widgets/custom_back_button.dart';
-export 'package:fiftyonestores/src/widgets/custom_button.dart';
-export 'package:fiftyonestores/src/widgets/custom_card.dart';
-export 'package:fiftyonestores/src/widgets/custom_text_field.dart';
+export 'package:fiftyonestores/src/widgets/LoadingState.dart';
+export 'package:fiftyonestores/src/widgets/CustomBackButton.dart';
+export 'package:fiftyonestores/src/widgets/CustomButton.dart';
+export 'package:fiftyonestores/src/widgets/CustomCard.dart';
+export 'package:fiftyonestores/src/widgets/CustomTextField.dart';
 export 'package:fiftyonestores/styles.dart';
 export 'package:flutter/gestures.dart';
 export 'package:flutter/material.dart';

@@ -1,6 +1,8 @@
+// ignore_for_file: file_names
+
 import '../../modules/index.dart';
 
-class SignUpState extends LoadingState {
+class ForgotState extends LoadingState {
   final RxString _email = ''.obs;
   final RxBool _obscureText1 = true.obs;
   final RxBool _obscureText2 = true.obs;

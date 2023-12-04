@@ -1,4 +1,6 @@
-import 'package:fiftyonestores/src/states/signup/state.dart';
+// ignore_for_file: file_names
+
+import 'package:fiftyonestores/src/states/signup/SignUpState.dart';
 
 import '../../modules/index.dart';
 

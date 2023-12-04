@@ -1,5 +1,5 @@
-import 'package:fiftyonestores/src/modules/dashboard/main.dart';
-import 'package:fiftyonestores/src/services/languages.dart';
+import 'package:fiftyonestores/src/modules/auth/signup/SignUp.dart';
+import 'package:fiftyonestores/src/services/Languages.dart';
 import 'package:fiftyonestores/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,11 +28,12 @@ class FiftyOneStores extends StatelessWidget {
       transitionDuration: const Duration(milliseconds: 500),
       theme: ThemeData(
         fontFamily: 'Poppins',
+        hoverColor: Colors.transparent,
         scaffoldBackgroundColor: Palette.bgLightWhiteColor,
         useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const Main(),
+      home: SignUp(),
     );
   }
 }

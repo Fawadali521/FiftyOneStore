@@ -1,7 +1,7 @@
-import 'package:fiftyonestores/src/modules/auth/forgot/forgot_password.dart';
+import 'package:fiftyonestores/src/modules/auth/forgot/ForgotPassword.dart';
 import 'package:fiftyonestores/src/modules/auth/signup/signup.dart';
 import 'package:fiftyonestores/src/modules/dashboard/main.dart';
-import 'package:fiftyonestores/src/states/signin/controller.dart';
+import 'package:fiftyonestores/src/states/signin/LoginController.dart';
 
 import '../../index.dart';
 
@@ -59,7 +59,7 @@ class SignIn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        SizedBox(height: sH(32)),
+        SizedBox(height: sH(24)),
         CustomTextField(
           hintText: 'email'.tr,
           onChange: (value) {
@@ -71,10 +71,11 @@ class SignIn extends StatelessWidget {
               emailIcon,
               height: 24,
               width: 24,
+              color: Palette.primaryColor,
             ),
           ),
         ),
-        SizedBox(height: sH(32)),
+        SizedBox(height: sH(16)),
         CustomTextField(
           hintText: 'passwrod'.tr,
           onChange: (value) {
@@ -86,6 +87,7 @@ class SignIn extends StatelessWidget {
               passwordIcon,
               height: 24,
               width: 24,
+              color: Palette.primaryColor,
             ),
           ),
           obscureText: controller.state.obscureText,
@@ -147,14 +149,14 @@ class SignIn extends StatelessWidget {
                 ),
               )
             : const SizedBox.shrink(),
-        SizedBox(height: sH(32)),
+        SizedBox(height: sH(24)),
         CustomButton(
           onTap: () {
             Get.to(() => const Main());
           },
           text: 'signInButton'.tr,
         ),
-        SizedBox(height: sH(32)),
+        SizedBox(height: sH(18)),
         Align(
           alignment: Alignment.center,
           child: RichText(

@@ -1,4 +1,6 @@
-import 'package:fiftyonestores/src/modules/dashboard/drawer/widgets/custom_sidebar_item.dart';
+// ignore_for_file: file_names
+
+import 'package:fiftyonestores/src/modules/dashboard/drawer/widgets/CustomSideBarItem.dart';
 import 'package:fiftyonestores/src/states/drawer_web/controller.dart';
 
 import '../../index.dart';
@@ -148,7 +150,7 @@ class _DrawerWebState extends State<DrawerWeb> {
                   Padding(
                     padding: EdgeInsets.only(
                         top: 48, right: controller.state.isExpand ? 24 : 0),
-                    child: InkWell(
+                    child: GestureDetector(
                       onTap: () => controller.changeExpand(),
                       child: CircleAvatar(
                         backgroundColor: const Color(0xFFF2F2F2),

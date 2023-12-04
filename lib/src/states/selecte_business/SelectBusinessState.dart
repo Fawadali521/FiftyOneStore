@@ -1,4 +1,6 @@
-import 'package:fiftyonestores/src/models/business_type.dart';
+// ignore_for_file: file_names
+
+import 'package:fiftyonestores/src/models/BusinessTypeModel.dart';
 
 import '../../modules/index.dart';
 

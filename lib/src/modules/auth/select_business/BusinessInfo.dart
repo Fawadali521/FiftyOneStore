@@ -1,5 +1,7 @@
-import 'package:fiftyonestores/src/modules/auth/select_business/contact_details.dart';
-import 'package:fiftyonestores/src/states/selecte_business/controller.dart';
+// ignore_for_file: file_names
+
+import 'package:fiftyonestores/src/modules/auth/select_business/ContactDetails.dart';
+import 'package:fiftyonestores/src/states/selecte_business/SelectBusinessController.dart';
 
 import '../../index.dart';
 
@@ -16,7 +18,8 @@ class BusinessInfo extends StatelessWidget {
           child: ResponsiveLayout(
             /// mobile view
             mobile: Padding(
-              padding: EdgeInsets.all(sW(32)),
+              padding:
+                  EdgeInsets.symmetric(horizontal: sW(18), vertical: sH(32)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -25,7 +28,10 @@ class BusinessInfo extends StatelessWidget {
                   ),
                   Expanded(
                     child: Center(
-                      child: _customOrganizationInformation(),
+                      child: CustomCard(
+                          widthPadding: 18,
+                          title: 'Organization information'.tr,
+                          data: _customOrganizationInformation()),
                     ),
                   ),
                 ],
@@ -45,7 +51,9 @@ class BusinessInfo extends StatelessWidget {
                     child: Center(
                       child: SizedBox(
                         width: 540,
-                        child: _customOrganizationInformation(),
+                        child: CustomCard(
+                            title: 'Organization information'.tr,
+                            data: _customOrganizationInformation()),
                       ),
                     ),
                   ),
@@ -55,7 +63,7 @@ class BusinessInfo extends StatelessWidget {
 
             /// desktop view
             desktop: Padding(
-              padding: EdgeInsets.all(sH(80)),
+              padding: EdgeInsets.all(sH(60)),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -66,7 +74,9 @@ class BusinessInfo extends StatelessWidget {
                     child: Center(
                       child: SizedBox(
                         width: 540,
-                        child: _customOrganizationInformation(),
+                        child: CustomCard(
+                            title: 'Organization information'.tr,
+                            data: _customOrganizationInformation()),
                       ),
                     ),
                   ),
@@ -81,51 +91,50 @@ class BusinessInfo extends StatelessWidget {
 
   // design for all screens
   Widget _customOrganizationInformation() {
-    return CustomCard(
-      title: 'Organization information'.tr,
-      data: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(height: sH(32)),
-          CustomTextField(
-            hintText: 'Organization name'.tr,
-            onChange: (value) {
-              controller.state.orgName = value;
-            },
-            prefixIcon: Padding(
-              padding: const EdgeInsets.only(left: 16, right: 24),
-              child: Image.asset(
-                orgNameIcon,
-                height: 24,
-                width: 24,
-              ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(height: sH(24)),
+        CustomTextField(
+          hintText: 'Organization name'.tr,
+          onChange: (value) {
+            controller.state.orgName = value;
+          },
+          prefixIcon: Padding(
+            padding: const EdgeInsets.only(left: 16, right: 24),
+            child: Image.asset(
+              orgNameIcon,
+              height: 24,
+              width: 24,
+              color: Palette.primaryColor,
             ),
           ),
-          SizedBox(height: sH(32)),
-          CustomTextField(
-            hintText: 'Enter organization address'.tr,
-            onChange: (value) {
-              controller.state.orgAddress = value;
-            },
-            prefixIcon: Padding(
-              padding: const EdgeInsets.only(left: 16, right: 24),
-              child: Image.asset(
-                locationIcon,
-                height: 24,
-                width: 24,
-              ),
+        ),
+        SizedBox(height: sH(16)),
+        CustomTextField(
+          hintText: 'Enter organization address'.tr,
+          onChange: (value) {
+            controller.state.orgAddress = value;
+          },
+          prefixIcon: Padding(
+            padding: const EdgeInsets.only(left: 16, right: 24),
+            child: Image.asset(
+              locationIcon,
+              height: 24,
+              width: 24,
+              color: Palette.primaryColor,
             ),
           ),
-          SizedBox(height: sH(32)),
-          CustomButton(
-            onTap: () {
-              Get.to(() => const ContactDetails());
-            },
-            text: 'Next'.tr,
-          ),
-        ],
-      ),
+        ),
+        SizedBox(height: sH(24)),
+        CustomButton(
+          onTap: () {
+            Get.to(() => const ContactDetails());
+          },
+          text: 'Next'.tr,
+        ),
+      ],
     );
   }
 }

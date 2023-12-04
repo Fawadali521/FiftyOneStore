@@ -1,5 +1,7 @@
-import 'package:fiftyonestores/src/modules/auth/forgot/forgot_otp.dart';
-import 'package:fiftyonestores/src/states/forgot/controller.dart';
+// ignore_for_file: file_names
+
+import 'package:fiftyonestores/src/modules/auth/forgot/ForgotOtp.dart';
+import 'package:fiftyonestores/src/states/forgot/ForgotController.dart';
 
 import '../../index.dart';
 
@@ -13,7 +15,7 @@ class ForgotPassword extends StatelessWidget {
         body: ResponsiveLayout(
           /// mobile view
           mobile: Padding(
-            padding: EdgeInsets.all(sW(32)),
+            padding: EdgeInsets.symmetric(horizontal: sW(18), vertical: sH(32)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -22,7 +24,10 @@ class ForgotPassword extends StatelessWidget {
                 ),
                 Expanded(
                   child: Center(
-                    child: _customForgotPassword(),
+                    child: CustomCard(
+                        widthPadding: 18,
+                        title: 'ForgotTitle'.tr,
+                        data: _customForgotPassword()),
                   ),
                 ),
               ],
@@ -42,7 +47,9 @@ class ForgotPassword extends StatelessWidget {
                   child: Center(
                     child: SizedBox(
                       width: 540,
-                      child: _customForgotPassword(),
+                      child: CustomCard(
+                          title: 'ForgotTitle'.tr,
+                          data: _customForgotPassword()),
                     ),
                   ),
                 ),
@@ -52,7 +59,7 @@ class ForgotPassword extends StatelessWidget {
 
           /// desktop view
           desktop: Padding(
-            padding: EdgeInsets.all(sH(80)),
+            padding: EdgeInsets.all(sH(60)),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -63,7 +70,10 @@ class ForgotPassword extends StatelessWidget {
                   child: Center(
                     child: SizedBox(
                       width: 540,
-                      child: _customForgotPassword(),
+                      child: CustomCard(
+                        title: 'ForgotTitle'.tr,
+                        data: _customForgotPassword(),
+                      ),
                     ),
                   ),
                 ),
@@ -77,49 +87,47 @@ class ForgotPassword extends StatelessWidget {
 
   // design for all screens
   Widget _customForgotPassword() {
-    return CustomCard(
-      title: 'ForgotTitle'.tr,
-      data: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(height: sH(12)),
-          Text(
-            "ForgotBodyText".tr,
-            style: TextStyles.titleSmall.copyWith(
-              color: Palette.grayColor,
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(height: sH(12)),
+        Text(
+          "ForgotBodyText".tr,
+          style: TextStyles.titleSmall.copyWith(
+            color: Palette.grayColor,
           ),
-          SizedBox(height: sH(32)),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              CustomTextField(
-                hintText: 'email'.tr,
-                onChange: (value) {
-                  controller.state.email = value;
-                },
-                prefixIcon: Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 24),
-                  child: Image.asset(
-                    emailIcon,
-                    height: 24,
-                    width: 24,
-                  ),
+        ),
+        SizedBox(height: sH(16)),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            CustomTextField(
+              hintText: 'email'.tr,
+              onChange: (value) {
+                controller.state.email = value;
+              },
+              prefixIcon: Padding(
+                padding: const EdgeInsets.only(left: 16, right: 24),
+                child: Image.asset(
+                  emailIcon,
+                  height: 24,
+                  width: 24,
+                  color: Palette.primaryColor,
                 ),
               ),
-              SizedBox(height: sH(32)),
-              CustomButton(
-                onTap: () {
-                  Get.to(() => ForgotOtp());
-                },
-                text: 'sendOtp'.tr,
-              ),
-            ],
-          ),
-        ],
-      ),
+            ),
+            SizedBox(height: sH(24)),
+            CustomButton(
+              onTap: () {
+                Get.to(() => ForgotOtp());
+              },
+              text: 'sendOtp'.tr,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

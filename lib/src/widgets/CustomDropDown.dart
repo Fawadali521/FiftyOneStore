@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import '../modules/index.dart';
 
 class CustomDropDown extends StatelessWidget {

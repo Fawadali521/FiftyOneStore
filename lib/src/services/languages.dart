@@ -50,7 +50,7 @@ class Languages extends Translations {
           'Global Settings Configuration': 'Global Settings Configuration',
           'Select currency': 'Select currency',
           'Set time zone': 'Set time zone',
-          'Tex rate': 'Tex rate',
+          'Tax rate': 'Tax rate',
           'Fiscal year start': 'Fiscal year start',
           'Contact details': 'Contact details',
           'Owner name': 'Owner name',
@@ -67,6 +67,8 @@ class Languages extends Translations {
           'Stock adjustment': 'Stock adjustment',
           'Product management': 'Product management',
           'Category management': 'Category management',
+          'What are you looking for?': 'What are you looking for?',
+          'Add category': 'Add category',
         },
       };
 }
