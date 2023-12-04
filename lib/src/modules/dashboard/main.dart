@@ -1,29 +1,55 @@
-import 'package:fiftyonestores/src/app/drawer/web_drawer.dart';
+import 'package:fiftyonestores/src/modules/dashboard/drawer/web_drawer.dart';
 
 import '../index.dart';
 
-class DashboardView extends StatelessWidget {
-  DashboardView({super.key});
-  final log = CustomLogger(className: 'HomeScreen');
+class Main extends StatelessWidget {
+  const Main({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Palette.whiteColor,
       body: Row(
         children: [
           //
           // side bar drawer
           //
-          DrawerWeb(),
+          const DrawerWeb(),
           //
           // main home screen
           //
           Expanded(
-            child: Center(
-              child: Text(
-                'Home Screen',
-                style: TextStyles.headlineLarge,
-              ),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 100,
+                  width: double.infinity,
+                  child: Row(
+                    children: [
+                      Text(
+                        "Dashboard".tr,
+                        style: TextStyles.headlineLarge.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const Center(
+                        child: Text(
+                          'Home Screen',
+                          style: TextStyles.headlineLarge,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const Expanded(
+                  child: Center(
+                    child: Text(
+                      'Home Screen',
+                      style: TextStyles.headlineLarge,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],

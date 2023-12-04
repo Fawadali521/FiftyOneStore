@@ -1,4 +1,4 @@
-import 'package:fiftyonestores/src/app/auth/select_business/branch_details.dart';
+import 'package:fiftyonestores/src/modules/auth/select_business/branch_details.dart';
 import 'package:fiftyonestores/src/states/select_business/controller.dart';
 import 'package:fiftyonestores/src/widgets/custom_drop_down.dart';
 

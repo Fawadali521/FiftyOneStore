@@ -1,4 +1,4 @@
-import '../../index.dart';
+import '../../../index.dart';
 
 class CustomSideBarItem extends StatelessWidget {
   final bool isSelected;

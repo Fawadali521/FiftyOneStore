@@ -1,4 +1,4 @@
-import '../app/index.dart';
+import '../modules/index.dart';
 
 class CustomCard extends StatelessWidget {
   final Widget data;

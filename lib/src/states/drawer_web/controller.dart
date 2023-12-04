@@ -1,6 +1,6 @@
 import 'package:fiftyonestores/src/states/drawer_web/state.dart';
 
-import '../../app/index.dart';
+import '../../modules/index.dart';
 
 class DrawerControler extends GetxController {
   final state = DrawerState();

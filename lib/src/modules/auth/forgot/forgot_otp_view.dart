@@ -1,4 +1,4 @@
-import 'package:fiftyonestores/src/app/auth/forgot/forgot_update_view.dart';
+import 'package:fiftyonestores/src/modules/auth/forgot/forgot_update_view.dart';
 import 'package:fiftyonestores/src/states/forgot/controller.dart';
 import 'package:pinput/pinput.dart';
 

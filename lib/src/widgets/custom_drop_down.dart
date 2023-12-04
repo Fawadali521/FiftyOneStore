@@ -1,4 +1,4 @@
-import '../app/index.dart';
+import '../modules/index.dart';
 
 class CustomDropDown extends StatelessWidget {
   final String selectedVal;

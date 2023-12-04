@@ -1,7 +1,7 @@
-import 'package:fiftyonestores/src/app/drawer/widgets/custom_sidebar_item.dart';
+import 'package:fiftyonestores/src/modules/dashboard/drawer/widgets/custom_sidebar_item.dart';
 import 'package:fiftyonestores/src/states/drawer_web/controller.dart';
 
-import '../index.dart';
+import '../../index.dart';
 
 class DrawerWeb extends StatefulWidget {
   const DrawerWeb({super.key});

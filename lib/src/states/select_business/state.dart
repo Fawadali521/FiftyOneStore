@@ -1,6 +1,6 @@
 import 'package:fiftyonestores/src/models/business_type.dart';
 
-import '../../app/index.dart';
+import '../../modules/index.dart';
 
 class SelectBusinessState extends LoadingState {
   final RxBool _isCorporate = false.obs;

@@ -1,4 +1,4 @@
-import '../../app/index.dart';
+import '../../modules/index.dart';
 
 class SignUpState extends LoadingState {
   final RxString _email = ''.obs;

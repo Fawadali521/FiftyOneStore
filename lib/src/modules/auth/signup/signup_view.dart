@@ -1,5 +1,5 @@
-import 'package:fiftyonestores/src/app/auth/select_business/business_type.dart';
-import 'package:fiftyonestores/src/app/auth/signin/signin_view.dart';
+import 'package:fiftyonestores/src/modules/auth/select_business/business_type.dart';
+import 'package:fiftyonestores/src/modules/auth/signin/signin_view.dart';
 import 'package:fiftyonestores/src/states/signup/controller.dart';
 
 import '../../index.dart';
@@ -120,7 +120,7 @@ class SignUpView extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: sH(12)),
+          SizedBox(height: sH(18)),
           Row(
             children: [
               Text(

@@ -1,4 +1,4 @@
-import '../../app/index.dart';
+import '../../modules/index.dart';
 
 class LoginState extends LoadingState {
   final RxBool _obscureText = true.obs;

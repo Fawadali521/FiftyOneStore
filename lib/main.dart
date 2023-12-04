@@ -1,4 +1,4 @@
-import 'package:fiftyonestores/src/app/auth/signup/signup_view.dart';
+import 'package:fiftyonestores/src/modules/auth/signup/signup_view.dart';
 import 'package:fiftyonestores/src/services/languages.dart';
 import 'package:fiftyonestores/styles.dart';
 import 'package:flutter/material.dart';

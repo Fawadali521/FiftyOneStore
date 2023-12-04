@@ -1,6 +1,6 @@
 import 'package:fiftyonestores/src/states/forgot/state.dart';
 
-import '../../app/index.dart';
+import '../../modules/index.dart';
 
 class ForgotController extends GetxController {
   final state = ForgotState();

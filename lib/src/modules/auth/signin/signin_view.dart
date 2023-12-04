@@ -1,5 +1,5 @@
-import 'package:fiftyonestores/src/app/auth/forgot/forgot_password_view.dart';
-import 'package:fiftyonestores/src/app/auth/signup/signup_view.dart';
+import 'package:fiftyonestores/src/modules/auth/forgot/forgot_password_view.dart';
+import 'package:fiftyonestores/src/modules/auth/signup/signup_view.dart';
 import 'package:fiftyonestores/src/states/signin/controller.dart';
 
 import '../../index.dart';
@@ -99,7 +99,7 @@ class SignInView extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: sH(12)),
+        SizedBox(height: sH(18)),
         Row(
           children: [
             Text(

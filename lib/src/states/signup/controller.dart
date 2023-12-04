@@ -1,6 +1,6 @@
 import 'package:fiftyonestores/src/states/signup/state.dart';
 
-import '../../app/index.dart';
+import '../../modules/index.dart';
 
 class SignUpController extends GetxController {
   final state = SignUpState();

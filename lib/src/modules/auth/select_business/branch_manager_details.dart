@@ -1,10 +1,10 @@
-import 'package:fiftyonestores/src/app/auth/select_business/contact_details.dart';
+import 'package:fiftyonestores/src/modules/auth/signin/signin_view.dart';
 import 'package:fiftyonestores/src/states/select_business/controller.dart';
 
 import '../../index.dart';
 
-class BusinessInfoView extends StatelessWidget {
-  BusinessInfoView({super.key});
+class BranchManagerDetailsView extends StatelessWidget {
+  BranchManagerDetailsView({super.key});
   final SelectBusinessController controller =
       Get.put(SelectBusinessController());
   @override
@@ -12,7 +12,7 @@ class BusinessInfoView extends StatelessWidget {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) => Scaffold(
         body: Form(
-          key: controller.orgInfo,
+          key: controller.branchDetails,
           child: ResponsiveLayout(
             /// mobile view
             mobile: Padding(
@@ -25,7 +25,7 @@ class BusinessInfoView extends StatelessWidget {
                   ),
                   Expanded(
                     child: Center(
-                      child: _customOrganizationInformation(),
+                      child: _customBranManagerchDetails(),
                     ),
                   ),
                 ],
@@ -45,7 +45,7 @@ class BusinessInfoView extends StatelessWidget {
                     child: Center(
                       child: SizedBox(
                         width: 540,
-                        child: _customOrganizationInformation(),
+                        child: _customBranManagerchDetails(),
                       ),
                     ),
                   ),
@@ -66,7 +66,7 @@ class BusinessInfoView extends StatelessWidget {
                     child: Center(
                       child: SizedBox(
                         width: 540,
-                        child: _customOrganizationInformation(),
+                        child: _customBranManagerchDetails(),
                       ),
                     ),
                   ),
@@ -80,23 +80,23 @@ class BusinessInfoView extends StatelessWidget {
   }
 
   // design for all screens
-  Widget _customOrganizationInformation() {
+  Widget _customBranManagerchDetails() {
     return CustomCard(
-      title: 'Organization information'.tr,
+      title: 'managerDetails'.tr,
       data: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(height: sH(32)),
           CustomTextField(
-            hintText: 'Organization name'.tr,
+            hintText: 'enterName'.tr,
             onChange: (value) {
-              controller.state.orgName = value;
+              controller.state.managerName = value;
             },
             prefixIcon: Padding(
               padding: const EdgeInsets.only(left: 16, right: 24),
               child: Image.asset(
-                orgNameIcon,
+                managerNameIcon,
                 height: 24,
                 width: 24,
               ),
@@ -104,14 +104,29 @@ class BusinessInfoView extends StatelessWidget {
           ),
           SizedBox(height: sH(32)),
           CustomTextField(
-            hintText: 'Enter organization address'.tr,
+            hintText: 'number'.tr,
             onChange: (value) {
-              controller.state.orgAddress = value;
+              controller.state.managerContact = value;
             },
             prefixIcon: Padding(
               padding: const EdgeInsets.only(left: 16, right: 24),
               child: Image.asset(
-                locationIcon,
+                contactIcon,
+                height: 24,
+                width: 24,
+              ),
+            ),
+          ),
+          SizedBox(height: sH(32)),
+          CustomTextField(
+            hintText: 'enterEmail'.tr,
+            onChange: (value) {
+              controller.state.managerEmail = value;
+            },
+            prefixIcon: Padding(
+              padding: const EdgeInsets.only(left: 16, right: 24),
+              child: Image.asset(
+                emailIcon,
                 height: 24,
                 width: 24,
               ),
@@ -120,7 +135,7 @@ class BusinessInfoView extends StatelessWidget {
           SizedBox(height: sH(32)),
           CustomButton(
             onTap: () {
-              Get.to(() => const ContactDetailsView());
+              Get.to(() => SignInView());
             },
             text: 'Next'.tr,
           ),

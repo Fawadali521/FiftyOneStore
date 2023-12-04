@@ -1,4 +1,4 @@
-import 'package:fiftyonestores/src/app/auth/forgot/forgot_otp_view.dart';
+import 'package:fiftyonestores/src/modules/auth/forgot/forgot_otp_view.dart';
 import 'package:fiftyonestores/src/states/forgot/controller.dart';
 
 import '../../index.dart';
