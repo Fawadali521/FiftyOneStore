@@ -36,7 +36,7 @@ class FiftyOneStores extends StatelessWidget {
         useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const Main(),
+      home: Main(),
     );
   }
 }

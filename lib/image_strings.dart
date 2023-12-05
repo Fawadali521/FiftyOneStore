@@ -35,8 +35,11 @@ const String primeCategoryIcon = "$icons/prime_category.png";
 const String subCategoryIcon = "$icons/subcategory.png";
 const String productIcon = "$icons/product.png";
 const String stockAdjustmentIcon = "$icons/stock_adjustment.png";
+const String primeFieldNameIcon = "$icons/prime_field.png";
+const String primeFileAddIcon = "$icons/file_field.png";
 
 ///
-///images
+///dynamic images
 ///
 const String user = "$images/user1.png";
+const String electronic = "$images/khasab.png";

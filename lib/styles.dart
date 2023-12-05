@@ -89,7 +89,7 @@ sW(double value) {
   if (Get.width < 500) {
     iniW = 390; //mobile
   } else if (Get.width < 900) {
-    iniW = 800; //tablet
+    iniW = 900; //tablet
   } else {
     iniW = 1440; //web
   }

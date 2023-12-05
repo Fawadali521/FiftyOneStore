@@ -1,6 +1,7 @@
 export 'package:fiftyonestores/constant/time_formate.dart';
 export 'package:fiftyonestores/image_strings.dart';
 export 'package:fiftyonestores/responsive/ResponsiveManager.dart';
+export 'package:fiftyonestores/src/states/dashboard/DashboardController.dart';
 export 'package:fiftyonestores/src/widgets/CustomBackButton.dart';
 export 'package:fiftyonestores/src/widgets/CustomButton.dart';
 export 'package:fiftyonestores/src/widgets/CustomCard.dart';

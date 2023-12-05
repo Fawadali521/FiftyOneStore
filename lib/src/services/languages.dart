@@ -71,6 +71,16 @@ class Languages extends Translations {
           'Category management': 'Category management',
           'What are you looking for?': 'What are you looking for?',
           'Add category': 'Add category',
+          'Add new prime category': 'Add new prime category',
+          'Category name': 'Category name',
+          'Description': 'Description',
+          'Maximum file size 50mb': 'Maximum file size 50mb',
+          'Drop your file here, or ': 'Drop your file here, or ',
+          'Browse': 'Browse',
+          'Add': 'Add',
+          'Add subcategory': 'Add subcategory',
+          'Add new subcategory': 'Add new subcategory',
+          'Subcategory name': 'Subcategory name',
         },
       };
 }

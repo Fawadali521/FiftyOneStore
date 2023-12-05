@@ -161,7 +161,8 @@ class SignUp extends StatelessWidget {
         SizedBox(height: sH(18)),
         Align(
           alignment: Alignment.center,
-          child: RichText(
+          child:
+           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
               style: TextStyles.titleSmall.copyWith(

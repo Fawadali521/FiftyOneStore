@@ -11,7 +11,11 @@ class DashboardController extends GetxController {
     state.selectedIndex = index;
   }
 
-  void changeExpand() {
-    state.isExpand = !state.isExpand;
+  void changeExpand({bool? value}) {
+    if (value != null) {
+      state.isExpand = value;
+    } else {
+      state.isExpand = !state.isExpand;
+    }
   }
 }

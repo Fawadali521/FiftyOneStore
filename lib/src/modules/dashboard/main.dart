@@ -1,14 +1,18 @@
 // ignore_for_file: file_names
 
 import 'package:fiftyonestores/src/modules/dashboard/drawer/DrawerWeb.dart';
+import 'package:fiftyonestores/src/modules/dashboard/subcategory/AddSubCategory.dart';
 
 import '../index.dart';
 
 class Main extends StatelessWidget {
-  const Main({super.key});
-
+  Main({super.key});
+  final DashboardController controller = Get.put(DashboardController());
   @override
   Widget build(BuildContext context) {
+    MediaQuery.of(context).size.width < 800
+        ? controller.changeExpand(value: false)
+        : null;
     return Scaffold(
       backgroundColor: Palette.whiteColor,
       body: Row(
@@ -16,49 +20,24 @@ class Main extends StatelessWidget {
           //
           // side bar drawer
           //
-          const DrawerWeb(),
+          DrawerWeb(),
           //
           // main home screen
           //
           Expanded(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: sW(40)),
+              padding: EdgeInsets.only(
+                  left: controller.state.isExpand ? sW(40) : sW(12),
+                  right: sW(40)),
               child: Column(
                 children: [
                   ///top bar
                   _topBar(),
                   SizedBox(height: sH(24)),
-                  Expanded(
-                    child: Center(
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              SizedBox(
-                                width: sW(300),
-                                child: CustomTextField(
-                                  hintText: "What are you looking for".tr,
-                                  prefixIcon: const Icon(
-                                    Icons.search_outlined,
-                                    color: Palette.grayColor,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(width: sW(24)),
-                              SizedBox(
-                                width: sW(200),
-                                child: CustomButton(
-                                  text: "Add category".tr,
-                                  onTap: () {},
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  AddSubCategory(),
+                  // SubCategory()
+                  // PrimeCategory()
+                  // AddPrimeCategory(),
                 ],
               ),
             ),
@@ -132,12 +111,14 @@ class Main extends StatelessWidget {
             ),
           ),
           SizedBox(width: sW(10)),
-          Text(
-            "Ali Ahemed",
-            style: TextStyles.headlineSmall.copyWith(
-              fontSize: 18,
-            ),
-          ),
+          Get.width < 600
+              ? const SizedBox()
+              : Text(
+                  "Ali Ahemed",
+                  style: TextStyles.headlineSmall.copyWith(
+                    fontSize: 18,
+                  ),
+                ),
           SizedBox(width: sW(10)),
           const Icon(
             Icons.keyboard_arrow_down_outlined,
@@ -148,90 +129,3 @@ class Main extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-//  SizedBox(
-//                       width: MediaQuery.sizeOf(context).width,
-//                       height: MediaQuery.sizeOf(context).height,
-//                       child: WebDrawerNavigation(
-//                           defaultNavigatorScreen: const AllScreen(),
-//                           defaultSelectedScreenNavigationName:
-//                               'dashboardScreen',
-//                           height: Get.height,
-//                           drawerTilesList: const [
-//                             TextTitle(
-//                               titleFullForm: 'Management',
-//                               titleShortForm: 'M',
-//                             ),
-//                             DrawerIconButton(
-//                               icon: Icons.dashboard,
-//                               title: 'Dashboard',
-//                               screenNavigationName: 'dashboardScreen',
-//                               navigatorScreenWidget: AllScreen(),
-//                             ),
-//                             DrawerIconButton(
-//                                 icon: Icons.shopping_cart,
-//                                 title: 'MarketPlace',
-//                                 screenNavigationName: 'marketPlace',
-//                                 navigatorScreenWidget: AllScreen()),
-//                             DrawerIconButton(
-//                                 icon: Icons.shopping_basket,
-//                                 title: 'Orders',
-//                                 screenNavigationName: 'orders',
-//                                 navigatorScreenWidget: AllScreen()),
-//                             DrawerIconButton(
-//                                 icon: Icons.track_changes,
-//                                 title: 'Tracking',
-//                                 screenNavigationName: 'tracking',
-//                                 navigatorScreenWidget: AllScreen()),
-//                             DrawerIconButton(
-//                                 icon: Icons.people,
-//                                 title: 'Customers',
-//                                 screenNavigationName: 'customers',
-//                                 navigatorScreenWidget: Customers()),
-//                             DrawerIconButton(
-//                                 icon: Icons.discount,
-//                                 title: 'Discounts',
-//                                 screenNavigationName: 'discounts',
-//                                 navigatorScreenWidget: AllScreen()),
-//                             TextTitle(
-//                                 titleShortForm: 'P', titleFullForm: 'Payments'),
-//                             DrawerIconButton(
-//                                 icon: Icons.receipt_long,
-//                                 title: 'Ledger',
-//                                 screenNavigationName: 'ledger',
-//                                 navigatorScreenWidget: AllScreen()),
-//                             DrawerIconButton(
-//                                 icon: Icons.paid,
-//                                 title: 'Taxes',
-//                                 screenNavigationName: 'taxes',
-//                                 navigatorScreenWidget: AllScreen()),
-//                             TextTitle(
-//                                 titleFullForm: 'Setting', titleShortForm: 'S'),
-//                             DrawerIconButton(
-//                                 icon: Icons.people,
-//                                 title: 'Settings',
-//                                 screenNavigationName: 'settings',
-//                                 navigatorScreenWidget: AllScreen()),
-//                             SwitchTile(),
-//                             ProfileImageWithTitleTile(
-//                               height: 300,
-//                               profileName: 'Ali Khan',
-//                               screenNavigationName: 'profile',
-//                               navigatorScreenWidget: AllScreen(),
-//                             ),
-//                             DrawerIconButton(
-//                                 icon: Icons.logout,
-//                                 title: 'Log Out',
-//                                 screenNavigationName: 'logout',
-//                                 navigatorScreenWidget: AllScreen())
-//                           ]),
-//                     ),
-                    
