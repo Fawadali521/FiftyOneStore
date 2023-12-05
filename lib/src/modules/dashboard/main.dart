@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:fiftyonestores/src/modules/dashboard/drawer/DrawerWeb.dart';
 
 import '../index.dart';

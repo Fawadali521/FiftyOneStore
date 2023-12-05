@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:fiftyonestores/src/modules/auth/forgot/ForgotPassword.dart';
 import 'package:fiftyonestores/src/modules/auth/signup/signup.dart';
 import 'package:fiftyonestores/src/modules/dashboard/main.dart';

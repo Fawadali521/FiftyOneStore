@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:get/get_navigation/src/root/internacionalization.dart';
 
 class Languages extends Translations {

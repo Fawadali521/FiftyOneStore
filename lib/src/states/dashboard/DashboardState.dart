@@ -1,6 +1,8 @@
+// ignore_for_file: file_names
+
 import '../../modules/index.dart';
 
-class DrawerState extends LoadingState {
+class DashboardState extends LoadingState {
   final RxBool _isExpand = false.obs;
   final RxInt _selectedIndex = 0.obs;
   bool get isExpand => _isExpand.value;

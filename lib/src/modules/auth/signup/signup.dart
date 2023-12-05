@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:fiftyonestores/src/modules/auth/select_business/BusinessType.dart';
 import 'package:fiftyonestores/src/modules/auth/signin/SignIn.dart';
 import 'package:fiftyonestores/src/states/signup/SignUpController.dart';

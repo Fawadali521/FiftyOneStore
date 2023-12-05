@@ -1,4 +1,4 @@
-import 'package:fiftyonestores/src/modules/auth/signup/SignUp.dart';
+import 'package:fiftyonestores/src/modules/dashboard/Main.dart';
 import 'package:fiftyonestores/src/services/Languages.dart';
 import 'package:fiftyonestores/styles.dart';
 import 'package:flutter/material.dart';
@@ -29,11 +29,14 @@ class FiftyOneStores extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Poppins',
         hoverColor: Colors.transparent,
-        scaffoldBackgroundColor: Palette.bgLightWhiteColor,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        focusColor: Colors.transparent,
+        scaffoldBackgroundColor: Palette.bgLightColor,
         useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SignUp(),
+      home: const Main(),
     );
   }
 }

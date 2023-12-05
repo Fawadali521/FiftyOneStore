@@ -205,7 +205,8 @@ class _ContactDetailsState extends State<ContactDetails> {
                         borderRadius: BorderRadius.circular(50),
                         border: Border.all(
                           color:
-                              controller.state.businessTypes[index].isSelected!
+                              controller.state.selectIndexBusinessType.value ==
+                                      index
                                   ? Palette.primaryColor
                                   : Palette.grayColor,
                         ),

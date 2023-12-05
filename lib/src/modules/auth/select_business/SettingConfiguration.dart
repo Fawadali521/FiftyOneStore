@@ -2,14 +2,15 @@
 
 import 'package:fiftyonestores/src/modules/auth/select_business/BranchDetails.dart';
 import 'package:fiftyonestores/src/states/selecte_business/SelectBusinessController.dart';
-import 'package:fiftyonestores/src/widgets/CustomDropDown.dart';
 
 import '../../index.dart';
 
 class SettingConfiguration extends StatelessWidget {
   SettingConfiguration({super.key});
+
   final SelectBusinessController controller =
       Get.put(SelectBusinessController());
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -95,123 +96,241 @@ class SettingConfiguration extends StatelessWidget {
 
   // design for all screens
   Widget _customSettingConfiguration() {
-    return Obx(
-      () => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(height: sH(24)),
-          Row(
-            children: [
-              Expanded(
-                child: CustomDropDown(
-                  prefixIcon: Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 24),
-                    child: Image.asset(
-                      currencyIcon,
-                      height: 24,
-                      width: 24,
-                      color: Palette.primaryColor,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(height: sH(24)),
+
+        ///currency
+        LayoutBuilder(
+          builder: (context, constraints) => RawAutocomplete<String>(
+            initialValue: TextEditingValue(
+              text: controller.state.selectedCurency.value,
+            ),
+            //second property where you can limit the overlay pop up suggestion
+            optionsViewBuilder: (BuildContext context,
+                AutocompleteOnSelected<String> onSelected,
+                Iterable<String> options) {
+              return Align(
+                alignment: Alignment.topLeft,
+                child: Material(
+                  elevation: 4.0,
+                  child: SizedBox(
+                    // height: 200.0,
+                    width: constraints.biggest.width,
+                    child: ListView.builder(
+                      padding: const EdgeInsets.all(8.0),
+                      itemCount: options.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final String option = options.elementAt(index);
+                        return GestureDetector(
+                          onTap: () {
+                            onSelected(option);
+                          },
+                          child: ListTile(
+                            title: Text(option),
+                          ),
+                        );
+                      },
                     ),
                   ),
-                  items: controller.state.selectCurrences,
-                  selectedVal: controller.state.selectedCurency.value,
-                  onChanged: (val) {
-                    controller.changeCurrency(val!);
-                  },
-                  textStyle: controller.state.selectCurrences.first ==
-                          controller.state.selectedCurency.value
-                      ? TextStyles.titleSmall.copyWith(
-                          color: Palette.grayColor,
-                        )
-                      : null,
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: sH(16)),
-          Row(
-            children: [
-              Expanded(
-                child: CustomDropDown(
-                  prefixIcon: Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 24),
-                    child: Image.asset(
-                      timeZoneIcon,
-                      height: 24,
-                      width: 24,
-                      color: Palette.primaryColor,
-                    ),
-                  ),
-                  items: controller.state.selectTimeZones,
-                  selectedVal: controller.state.selectedTimeZone.value,
-                  onChanged: (val) {
-                    controller.changeTimeZone(val!);
-                  },
-                  textStyle: controller.state.selectTimeZones.first ==
-                          controller.state.selectedTimeZone.value
-                      ? TextStyles.titleSmall.copyWith(
-                          color: Palette.grayColor,
-                        )
-                      : null,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: sH(16)),
-          CustomTextField(
-            hintText: 'Tax rate'.tr,
-            onChange: (value) {
-              controller.state.texRate = value;
+              );
             },
-            prefixIcon: Padding(
-              padding: const EdgeInsets.only(left: 16, right: 24),
-              child: Image.asset(
-                texRateIcon,
-                height: 24,
-                width: 24,
-                color: Palette.primaryColor,
-              ),
+            optionsBuilder: (textValue) {
+              if (textValue.text.isEmpty) {
+                return List.empty();
+              } else {
+                if (textValue.text.length == 1) {
+                  controller.state.selectedCurency.value = "";
+                  return controller.state.selectCurrences.where((element) =>
+                      element
+                          .toLowerCase()
+                          .contains(textValue.text.toLowerCase()));
+                } else {
+                  controller.state.selectedCurency.value = textValue.text;
+                  return controller.state.selectCurrences.where((element) =>
+                      element
+                          .toLowerCase()
+                          .contains(textValue.text.toLowerCase()));
+                }
+              }
+            },
+            fieldViewBuilder:
+                (context, textEditingController, focusNode, onFieldSubmitted) {
+              return CustomTextField(
+                obscureText: false,
+                focusnode: focusNode,
+                onEditingComplete: onFieldSubmitted,
+                controller: textEditingController,
+                hintText: "Select currency".tr,
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.only(left: 16, right: 24),
+                  child: Image.asset(
+                    currencyIcon,
+                    height: 24,
+                    width: 24,
+                    color: Palette.primaryColor,
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+        SizedBox(height: sH(16)),
+
+        ///time zone
+        LayoutBuilder(
+          builder: (context, constraints) => RawAutocomplete<String>(
+            optionsViewBuilder: (BuildContext context,
+                AutocompleteOnSelected<String> onSelected,
+                Iterable<String> options) {
+              return Align(
+                alignment: Alignment.topLeft,
+                child: Material(
+                  elevation: 4.0,
+                  child: SizedBox(
+                    // height: 200.0,
+                    width: constraints.biggest.width,
+                    child: ListView.builder(
+                      padding: const EdgeInsets.all(8.0),
+                      itemCount: options.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final String option = options.elementAt(index);
+                        return GestureDetector(
+                          onTap: () {
+                            onSelected(option);
+                          },
+                          child: ListTile(
+                            title: Text(option),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              );
+            },
+            initialValue: TextEditingValue(
+              text: controller.state.selectedTimeZone.value,
+            ),
+            optionsBuilder: (textValue) {
+              if (textValue.text.isEmpty) {
+                return List.empty();
+              } else {
+                if (textValue.text.length == 1) {
+                  controller.state.selectedTimeZone.value = "";
+                  return controller.state.selectTimeZones.where((element) =>
+                      element
+                          .toLowerCase()
+                          .contains(textValue.text.toLowerCase()));
+                } else {
+                  controller.state.selectedTimeZone.value = textValue.text;
+                  return controller.state.selectTimeZones.where((element) =>
+                      element
+                          .toLowerCase()
+                          .contains(textValue.text.toLowerCase()));
+                }
+              }
+            },
+            fieldViewBuilder:
+                (context, textEditingController, focusNode, onFieldSubmitted) {
+              return CustomTextField(
+                obscureText: false,
+                focusnode: focusNode,
+                onEditingComplete: onFieldSubmitted,
+                controller: textEditingController,
+                hintText: 'Set time zone'.tr,
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.only(left: 16, right: 24),
+                  child: Image.asset(
+                    timeZoneIcon,
+                    height: 24,
+                    width: 24,
+                    color: Palette.primaryColor,
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+        SizedBox(height: sH(16)),
+        CustomTextField(
+          hintText: 'Tax rate'.tr,
+          onChange: (value) {
+            controller.state.texRate = value;
+          },
+          prefixIcon: Padding(
+            padding: const EdgeInsets.only(left: 16, right: 24),
+            child: Image.asset(
+              texRateIcon,
+              height: 24,
+              width: 24,
+              color: Palette.primaryColor,
             ),
           ),
-          SizedBox(height: sH(16)),
-          Row(
-            children: [
-              Expanded(
-                child: CustomDropDown(
-                  prefixIcon: Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 24),
-                    child: Image.asset(
-                      yearStartIcon,
-                      height: 24,
-                      width: 24,
-                      color: Palette.primaryColor,
+        ),
+        SizedBox(height: sH(16)),
+        CustomTextField(
+          controller: controller.state.fiscalStartYear,
+          prefixIcon: Padding(
+            padding: const EdgeInsets.only(left: 16, right: 24),
+            child: Image.asset(
+              yearStartIcon,
+              height: 24,
+              width: 24,
+              color: Palette.primaryColor,
+            ),
+          ),
+          onTap: () {
+            showDatePicker(
+              context: Get.context!,
+              initialDate: DateTime.now(),
+              firstDate: DateTime(2022),
+              lastDate: DateTime(2100),
+              builder: (context, child) {
+                return Theme(
+                  data: Theme.of(context).copyWith(
+                    datePickerTheme: const DatePickerThemeData(
+                      surfaceTintColor: Palette.bgLightColor,
+                    ),
+                    colorScheme: const ColorScheme.light(
+                      primary: Palette.primaryColor, // header background color
+                    ),
+                    textButtonTheme: TextButtonThemeData(
+                      style: TextButton.styleFrom(
+                        textStyle: TextStyles.titleMedium,
+                        // button text color
+                      ),
                     ),
                   ),
-                  items: controller.state.selectYearStarts,
-                  selectedVal: controller.state.selectedYearStart.value,
-                  onChanged: (val) {
-                    controller.changeYearStart(val!);
+                  child: child!,
+                );
+              },
+            ).then(
+              (value) => {
+                FocusManager.instance.primaryFocus?.unfocus(),
+                if (value != null)
+                  {
+                    controller.state.fiscalStartYear.text =
+                        monthNameDate.format(value),
                   },
-                  textStyle: controller.state.selectYearStarts.first ==
-                          controller.state.selectedYearStart.value
-                      ? TextStyles.titleSmall.copyWith(
-                          color: Palette.grayColor,
-                        )
-                      : null,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: sH(24)),
-          CustomButton(
-            onTap: () {
-              Get.to(() => BranchDetails());
-            },
-            text: 'Next'.tr,
-          ),
-        ],
-      ),
+              },
+            );
+          },
+          obscureText: false,
+          hintText: 'Fiscal year start'.tr,
+        ),
+
+        SizedBox(height: sH(24)),
+        CustomButton(
+          onTap: () {
+            Get.to(() => BranchDetails());
+          },
+          text: 'Next'.tr,
+        ),
+      ],
     );
   }
 }

@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:fiftyonestores/src/modules/dashboard/drawer/widgets/CustomSideBarItem.dart';
-import 'package:fiftyonestores/src/states/drawer_web/controller.dart';
+import 'package:fiftyonestores/src/states/dashboard/DashboardController.dart';
 
 import '../../index.dart';
 
@@ -12,7 +12,7 @@ class DrawerWeb extends StatefulWidget {
 }
 
 class _DrawerWebState extends State<DrawerWeb> {
-  final DrawerControler controller = Get.put(DrawerControler());
+  final DashboardController controller = Get.put(DashboardController());
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -29,7 +29,7 @@ class _DrawerWebState extends State<DrawerWeb> {
                   // all items of the drawer
                   //
                   Container(
-                    width: controller.state.isExpand ? null : 110,
+                    width: controller.state.isExpand ? null : 100,
                     padding: controller.state.isExpand
                         ? EdgeInsets.zero
                         : const EdgeInsets.only(
@@ -38,7 +38,7 @@ class _DrawerWebState extends State<DrawerWeb> {
                     child: Container(
                       color: const Color(0xFFF7F7F7),
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 24, vertical: 32),
+                          horizontal: 20, vertical: 32),
                       child: Column(
                         children: [
                           /// logo
@@ -150,7 +150,7 @@ class _DrawerWebState extends State<DrawerWeb> {
                   Padding(
                     padding: EdgeInsets.only(
                         top: 48, right: controller.state.isExpand ? 24 : 0),
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () => controller.changeExpand(),
                       child: CircleAvatar(
                         backgroundColor: const Color(0xFFF2F2F2),

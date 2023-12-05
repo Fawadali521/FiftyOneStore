@@ -64,7 +64,7 @@ class BorderStyles {
 }
 
 class Palette {
-  static const Color bgLightWhiteColor = Color(0xFFF7F7F7);
+  static const Color bgLightColor = Color(0xFFF7F7F7);
   static const Color bgWhiteColor = Color(0xFFFFFFFF);
   static const Color bgTextFeildColor = Color(0xFFF7F7F7);
   static const Color primaryColor = Color(0xFF47C03F);
