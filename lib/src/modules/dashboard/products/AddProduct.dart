@@ -2,8 +2,8 @@
 
 import '../../index.dart';
 
-class AddSubCategory extends StatelessWidget {
-  AddSubCategory({
+class AddProduct extends StatelessWidget {
+  AddProduct({
     super.key,
   });
   final DashboardController controller = Get.find();
@@ -28,7 +28,7 @@ class AddSubCategory extends StatelessWidget {
                 padding:
                     EdgeInsets.symmetric(vertical: sH(12), horizontal: sW(24)),
                 child: Text(
-                  "Add new subcategory".tr,
+                  "Add product".tr,
                   style: TextStyles.headlineMedium,
                 ),
               ),
@@ -48,12 +48,28 @@ class AddSubCategory extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Subcategory".tr,
+                          "Basic Product Details".tr,
                           style: TextStyles.headlineSmall,
                         ),
                         SizedBox(height: sH(24)),
 
-                        ///all category
+                        ///all basic product details
+                        CustomTextField(
+                          hintText: 'Product name'.tr,
+                          onChange: (value) {
+                            // controller.state.email = value;
+                          },
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.only(left: 16, right: 24),
+                            child: Image.asset(
+                              productIcon,
+                              height: 24,
+                              width: 24,
+                              color: Palette.primaryColor,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: sH(16)),
                         LayoutBuilder(
                           builder: (context, constraints) =>
                               RawAutocomplete<String>(
@@ -137,21 +153,88 @@ class AddSubCategory extends StatelessWidget {
                             },
                           ),
                         ),
-
                         SizedBox(height: sH(16)),
-                        CustomTextField(
-                          hintText: 'Subcategory name'.tr,
-                          onChange: (value) {
-                            // controller.state.email = value;
-                          },
-                          prefixIcon: Padding(
-                            padding: const EdgeInsets.only(left: 16, right: 24),
-                            child: Image.asset(
-                              subCategoryIcon,
-                              height: 24,
-                              width: 24,
-                              color: Palette.primaryColor,
+                        LayoutBuilder(
+                          builder: (context, constraints) =>
+                              RawAutocomplete<String>(
+                            optionsViewBuilder: (BuildContext context,
+                                AutocompleteOnSelected<String> onSelected,
+                                Iterable<String> options) {
+                              return Align(
+                                alignment: Alignment.topLeft,
+                                child: Material(
+                                  elevation: 4.0,
+                                  child: SizedBox(
+                                    // height: 200.0,
+                                    width: constraints.biggest.width,
+                                    child: ListView.builder(
+                                      padding: const EdgeInsets.all(8.0),
+                                      itemCount: options.length,
+                                      itemBuilder:
+                                          (BuildContext context, int index) {
+                                        final String option =
+                                            options.elementAt(index);
+                                        return GestureDetector(
+                                          onTap: () {
+                                            onSelected(option);
+                                          },
+                                          child: ListTile(
+                                            title: Text(option),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                            initialValue: TextEditingValue(
+                              text:
+                                  controller.state.selectedPrimeCategory.value,
                             ),
+                            optionsBuilder: (textValue) {
+                              if (textValue.text.isEmpty) {
+                                return List.empty();
+                              } else {
+                                if (textValue.text.length == 1) {
+                                  controller.state.selectedPrimeCategory.value =
+                                      "";
+                                  return controller.state.selectPrimesCategores
+                                      .where((element) => element
+                                          .toLowerCase()
+                                          .contains(
+                                              textValue.text.toLowerCase()));
+                                } else {
+                                  controller.state.selectedPrimeCategory.value =
+                                      textValue.text;
+                                  return controller.state.selectPrimesCategores
+                                      .where((element) => element
+                                          .toLowerCase()
+                                          .contains(
+                                              textValue.text.toLowerCase()));
+                                }
+                              }
+                            },
+                            fieldViewBuilder: (context, textEditingController,
+                                focusNode, onFieldSubmitted) {
+                              return CustomTextField(
+                                obscureText: false,
+                                focusnode: focusNode,
+                                onEditingComplete: onFieldSubmitted,
+                                controller: textEditingController,
+                                hintText: 'Subcategory name'.tr,
+                                prefixIcon: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 16, right: 24),
+                                  child: Image.asset(
+                                    subCategoryIcon,
+                                    height: 24,
+                                    width: 24,
+                                    color: Palette.primaryColor,
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ),
                         SizedBox(height: sH(16)),
@@ -214,9 +297,9 @@ class AddSubCategory extends StatelessWidget {
                             width: 300,
                             child: CustomButton(
                                 onTap: () {
-                                  controller.changeIndex(2, 2);
+                                  controller.changeIndex(3, 8);
                                 },
-                                text: "Add".tr),
+                                text: "Next".tr),
                           ),
                         ),
                         SizedBox(height: sH(12)),

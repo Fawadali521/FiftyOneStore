@@ -3,10 +3,10 @@
 import '../../index.dart';
 
 class AddPrimeCategory extends StatelessWidget {
-  const AddPrimeCategory({
+   AddPrimeCategory({
     super.key,
   });
-
+ final DashboardController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -23,8 +23,8 @@ class AddPrimeCategory extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              padding: EdgeInsets.symmetric(
-                  vertical: sH(12), horizontal: sW(24)),
+              padding:
+                  EdgeInsets.symmetric(vertical: sH(12), horizontal: sW(24)),
               child: Text(
                 "Add new prime category".tr,
                 style: TextStyles.headlineMedium,
@@ -38,8 +38,8 @@ class AddPrimeCategory extends StatelessWidget {
               thickness: 1,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(
-                  vertical: sH(12), horizontal: sW(24)),
+              padding:
+                  EdgeInsets.symmetric(vertical: sH(12), horizontal: sW(24)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -54,8 +54,7 @@ class AddPrimeCategory extends StatelessWidget {
                       // controller.state.email = value;
                     },
                     prefixIcon: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 16, right: 24),
+                      padding: const EdgeInsets.only(left: 16, right: 24),
                       child: Image.asset(
                         primeFieldNameIcon,
                         height: 24,
@@ -75,8 +74,7 @@ class AddPrimeCategory extends StatelessWidget {
                   SizedBox(height: sH(16)),
                   Container(
                     width: double.infinity,
-                    padding:
-                        EdgeInsets.symmetric(vertical: sH(18)),
+                    padding: EdgeInsets.symmetric(vertical: sH(18)),
                     decoration: const BoxDecoration(
                       color: Palette.bgTextFeildColor,
                       borderRadius: BorderStyles.normal,
@@ -95,15 +93,12 @@ class AddPrimeCategory extends StatelessWidget {
                             style: TextStyles.headlineSmall,
                             children: [
                               TextSpan(
-                                text:
-                                    'Drop your file here, or '.tr,
+                                text: 'Drop your file here, or '.tr,
                               ),
                               TextSpan(
                                 text: 'Browse'.tr,
                                 style: TextStyles.headlineSmall
-                                    .copyWith(
-                                        color:
-                                            Palette.primaryColor),
+                                    .copyWith(color: Palette.primaryColor),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {},
                               ),
@@ -114,8 +109,7 @@ class AddPrimeCategory extends StatelessWidget {
                         Text(
                           "Maximum file size 50mb".tr,
                           style: TextStyles.bodyMedium.copyWith(
-                            color: Palette.blackColor
-                                .withOpacity(0.5),
+                            color: Palette.blackColor.withOpacity(0.5),
                           ),
                         ),
                       ],
@@ -127,7 +121,11 @@ class AddPrimeCategory extends StatelessWidget {
                     child: SizedBox(
                       width: 300,
                       child: CustomButton(
-                          onTap: () {}, text: "Add".tr),
+                        onTap: () {
+                          controller.changeIndex(1, 1);
+                        },
+                        text: "Add".tr,
+                      ),
                     ),
                   ),
                   SizedBox(height: sH(12)),

@@ -37,6 +37,19 @@ const String productIcon = "$icons/product.png";
 const String stockAdjustmentIcon = "$icons/stock_adjustment.png";
 const String primeFieldNameIcon = "$icons/prime_field.png";
 const String primeFileAddIcon = "$icons/file_field.png";
+const String skuIcon = "$icons/sku.png";
+const String namePersonIcon = "$icons/name_person.png";
+const String barCodeIcon = "$icons/barcode.png";
+const String warningIcon = "$icons/warning.png";
+const String variantIcon = "$icons/variant.png";
+const String supplierPriceIcon = "$icons/supplier_price.png";
+const String salePriceIcon = "$icons/sale_price.png";
+const String materialIcon = "$icons/material.png";
+const String expireIcon = "$icons/expire.png";
+const String discountIcon = "$icons/discount.png";
+const String currentStockIcon = "$icons/current_stock.png";
+const String colorIcon = "$icons/color.png";
+const String addStockIcon = "$icons/add_stock.png";
 
 ///
 ///dynamic images

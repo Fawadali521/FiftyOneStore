@@ -59,6 +59,7 @@ class TextStyles {
 }
 
 class BorderStyles {
+  static const small = BorderRadius.all(Radius.circular(5));
   static const normal = BorderRadius.all(Radius.circular(8));
   static const medium = BorderRadius.all(Radius.circular(12));
 }
@@ -72,6 +73,7 @@ class Palette {
   static const Color whiteColor = Color(0xFFFFFFFF);
   static const Color blackColor = Color(0xFF000000);
   static const Color blueColor = Color(0xFF1C274C);
+  static const Color redColor = Color(0xFFD62828);
 }
 
 sH(double value) {

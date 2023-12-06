@@ -1,13 +1,33 @@
 // ignore_for_file: file_names
 
 import 'package:fiftyonestores/src/modules/dashboard/drawer/DrawerWeb.dart';
+import 'package:fiftyonestores/src/modules/dashboard/prime_category/AddPrimeCategory.dart';
+import 'package:fiftyonestores/src/modules/dashboard/prime_category/Primecategory.dart';
+import 'package:fiftyonestores/src/modules/dashboard/products/AddProduct.dart';
+import 'package:fiftyonestores/src/modules/dashboard/products/IdentificationAndSourcing.dart';
+import 'package:fiftyonestores/src/modules/dashboard/products/Products.dart';
+import 'package:fiftyonestores/src/modules/dashboard/stock_adjustment/PricingDetails.dart';
+import 'package:fiftyonestores/src/modules/dashboard/stock_adjustment/StockManagment.dart';
 import 'package:fiftyonestores/src/modules/dashboard/subcategory/AddSubCategory.dart';
+import 'package:fiftyonestores/src/modules/dashboard/subcategory/SubCategory.dart';
 
 import '../index.dart';
 
 class Main extends StatelessWidget {
   Main({super.key});
   final DashboardController controller = Get.put(DashboardController());
+  final List<Widget> pages = [
+    PrimeCategory(),
+    PrimeCategory(),
+    SubCategory(),
+    Products(),
+    StockManagment(),
+    AddPrimeCategory(), //index 5
+    AddSubCategory(), //index 6
+    AddProduct(), //index 7
+    IdentificationAndSourcing(), //index 8
+    PricingDetails(), //index 9
+  ];
   @override
   Widget build(BuildContext context) {
     MediaQuery.of(context).size.width < 800
@@ -16,6 +36,7 @@ class Main extends StatelessWidget {
     return Scaffold(
       backgroundColor: Palette.whiteColor,
       body: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //
           // side bar drawer
@@ -25,20 +46,24 @@ class Main extends StatelessWidget {
           // main home screen
           //
           Expanded(
-            child: Padding(
-              padding: EdgeInsets.only(
-                  left: controller.state.isExpand ? sW(40) : sW(12),
-                  right: sW(40)),
-              child: Column(
-                children: [
-                  ///top bar
-                  _topBar(),
-                  SizedBox(height: sH(24)),
-                  AddSubCategory(),
-                  // SubCategory()
-                  // PrimeCategory()
-                  // AddPrimeCategory(),
-                ],
+            child: Obx(
+              () => Padding(
+                padding: EdgeInsets.only(
+                    left: controller.state.isExpand ? sW(40) : sW(12),
+                    right: sW(40)),
+                child: Column(
+                  children: [
+                    ///top bar
+                    _topBar(),
+                    // SizedBox(height: sH(24)),
+                    pages[controller.state.selectedPageIndex],
+                    // PricingDetails(),
+                    // IdentificationAndSourcing(),
+                    // AddProduct(),
+                    // AddSubCategory(),
+                    // AddPrimeCategory(),
+                  ],
+                ),
               ),
             ),
           ),

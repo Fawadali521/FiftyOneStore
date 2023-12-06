@@ -154,7 +154,7 @@ class SignIn extends StatelessWidget {
         SizedBox(height: sH(24)),
         CustomButton(
           onTap: () {
-            Get.to(() => const Main());
+            Get.to(() => Main());
           },
           text: 'signInButton'.tr,
         ),

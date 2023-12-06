@@ -7,11 +7,16 @@ import '../../modules/index.dart';
 class DashboardState extends LoadingState {
   final RxBool _isExpand = false.obs;
   final RxInt _selectedIndex = 0.obs;
+  final RxInt _selectedPageIndex = 0.obs;
   bool get isExpand => _isExpand.value;
   int get selectedIndex => _selectedIndex.value;
+  int get selectedPageIndex => _selectedPageIndex.value;
   set isExpand(value) => _isExpand.value = value;
   set selectedIndex(value) => _selectedIndex.value = value;
+  set selectedPageIndex(value) => _selectedPageIndex.value = value;
   final RxString selectedPrimeCategory = ''.obs;
+  final TextEditingController expireDate = TextEditingController();
+  final RxBool switchValue = false.obs;
 
   ///dummy data
   final RxList<String> selectPrimesCategores = [

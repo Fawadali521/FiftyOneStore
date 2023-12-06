@@ -7,6 +7,7 @@ import '../../index.dart';
 class DrawerWeb extends StatelessWidget {
   final DashboardController controller = Get.find();
   DrawerWeb({super.key});
+  // final DashboardController controller = Get.put(DashboardController());
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +63,7 @@ class DrawerWeb extends StatelessWidget {
                                     : CrossAxisAlignment.center,
                                 children: [
                                   CustomSideBarItem(
-                                    onTap: () => controller.changeIndex(0),
+                                    onTap: () => controller.changeIndex(0, 0),
                                     title: "Dashboard".tr,
                                     icon: dashboardIcon,
                                     isExpand: controller.state.isExpand,
@@ -82,7 +83,7 @@ class DrawerWeb extends StatelessWidget {
                                         )
                                       : const SizedBox.shrink(),
                                   CustomSideBarItem(
-                                    onTap: () => controller.changeIndex(1),
+                                    onTap: () => controller.changeIndex(1, 1),
                                     title: "Prime category".tr,
                                     icon: primeCategoryIcon,
                                     isExpand: controller.state.isExpand,
@@ -92,7 +93,7 @@ class DrawerWeb extends StatelessWidget {
                                             : false,
                                   ),
                                   CustomSideBarItem(
-                                    onTap: () => controller.changeIndex(2),
+                                    onTap: () => controller.changeIndex(2, 2),
                                     title: "Subcategory".tr,
                                     icon: subCategoryIcon,
                                     isExpand: controller.state.isExpand,
@@ -112,7 +113,7 @@ class DrawerWeb extends StatelessWidget {
                                         )
                                       : const SizedBox.shrink(),
                                   CustomSideBarItem(
-                                    onTap: () => controller.changeIndex(3),
+                                    onTap: () => controller.changeIndex(3, 3),
                                     title: "Products".tr,
                                     icon: productIcon,
                                     isExpand: controller.state.isExpand,
@@ -122,7 +123,7 @@ class DrawerWeb extends StatelessWidget {
                                             : false,
                                   ),
                                   CustomSideBarItem(
-                                    onTap: () => controller.changeIndex(4),
+                                    onTap: () => controller.changeIndex(4, 4),
                                     title: "Stock adjustment".tr,
                                     icon: stockAdjustmentIcon,
                                     isExpand: controller.state.isExpand,

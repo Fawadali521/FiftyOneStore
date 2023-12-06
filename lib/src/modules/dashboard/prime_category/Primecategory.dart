@@ -40,7 +40,9 @@ class PrimeCategory extends StatelessWidget {
                   flex: 2,
                   child: CustomButton(
                     text: "Add category".tr,
-                    onTap: () {},
+                    onTap: () {
+                      controller.changeIndex(1, 5);
+                    },
                   ),
                 ),
               ],

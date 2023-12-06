@@ -40,7 +40,9 @@ class SubCategory extends StatelessWidget {
                   flex: 2,
                   child: CustomButton(
                     text: "Add subcategory".tr,
-                    onTap: () {},
+                    onTap: () {
+                      controller.changeIndex(2, 6);
+                    },
                   ),
                 ),
               ],
