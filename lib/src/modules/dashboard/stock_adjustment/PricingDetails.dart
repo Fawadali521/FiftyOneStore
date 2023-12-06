@@ -1,7 +1,5 @@
 // ignore_for_file: file_names
 
-import 'package:fiftyonestores/src/modules/dashboard/products/products.dart';
-
 import '../../index.dart';
 
 class PricingDetails extends StatelessWidget {

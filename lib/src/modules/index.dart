@@ -5,6 +5,7 @@ export 'package:fiftyonestores/src/states/dashboard/DashboardController.dart';
 export 'package:fiftyonestores/src/widgets/CustomBackButton.dart';
 export 'package:fiftyonestores/src/widgets/CustomButton.dart';
 export 'package:fiftyonestores/src/widgets/CustomCard.dart';
+export 'package:fiftyonestores/src/widgets/CustomDevider.dart';
 export 'package:fiftyonestores/src/widgets/CustomTextField.dart';
 export 'package:fiftyonestores/src/widgets/LoadingState.dart';
 export 'package:fiftyonestores/styles.dart';
