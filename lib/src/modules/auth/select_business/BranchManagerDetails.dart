@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:fiftyonestores/src/modules/auth/signin/SignIn.dart';
+import 'package:fiftyonestores/src/modules/dashboard/main.dart';
 import 'package:fiftyonestores/src/states/selecte_business/SelectBusinessController.dart';
 
 import '../../index.dart';
@@ -146,7 +146,7 @@ class BranchManagerDetails extends StatelessWidget {
         SizedBox(height: sH(24)),
         CustomButton(
           onTap: () {
-            Get.to(() => SignIn());
+            Get.offAll(() => Main());
           },
           text: 'Next'.tr,
         ),

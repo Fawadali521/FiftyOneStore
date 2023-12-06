@@ -26,9 +26,8 @@ class CustomCard extends StatelessWidget {
           horizontal: widthPadding ?? sW(40),
           vertical: heightPadding ?? sH(40),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
+        child: ListView(
+          shrinkWrap: true,
           children: [
             Image.asset(
               logo,

@@ -3,10 +3,10 @@
 import '../../index.dart';
 
 class AddPrimeCategory extends StatelessWidget {
-   AddPrimeCategory({
+  AddPrimeCategory({
     super.key,
   });
- final DashboardController controller = Get.find();
+  final DashboardController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -18,8 +18,8 @@ class AddPrimeCategory extends StatelessWidget {
           ),
           borderRadius: BorderStyles.normal,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+          shrinkWrap: true,
           children: [
             Container(
               width: double.infinity,
@@ -40,8 +40,8 @@ class AddPrimeCategory extends StatelessWidget {
             Padding(
               padding:
                   EdgeInsets.symmetric(vertical: sH(12), horizontal: sW(24)),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: ListView(
+                shrinkWrap: true,
                 children: [
                   Text(
                     "Prime category".tr,

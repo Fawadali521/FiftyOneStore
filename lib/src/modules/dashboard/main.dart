@@ -51,11 +51,13 @@ class Main extends StatelessWidget {
                 padding: EdgeInsets.only(
                     left: controller.state.isExpand ? sW(40) : sW(12),
                     right: sW(40)),
-                child: Column(
+                child: ListView(
+                  shrinkWrap: true,
                   children: [
-                    ///top bar
+                    // /top bar
                     _topBar(),
                     // SizedBox(height: sH(24)),
+
                     pages[controller.state.selectedPageIndex],
                     // PricingDetails(),
                     // IdentificationAndSourcing(),

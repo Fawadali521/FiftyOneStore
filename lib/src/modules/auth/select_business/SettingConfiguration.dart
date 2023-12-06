@@ -293,7 +293,7 @@ class SettingConfiguration extends StatelessWidget {
                 return Theme(
                   data: Theme.of(context).copyWith(
                     datePickerTheme: const DatePickerThemeData(
-                      surfaceTintColor: Palette.bgLightColor,
+                      surfaceTintColor: Palette.bgColor,
                     ),
                     colorScheme: const ColorScheme.light(
                       primary: Palette.primaryColor, // header background color

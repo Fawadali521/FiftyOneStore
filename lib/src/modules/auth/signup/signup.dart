@@ -59,9 +59,10 @@ class SignUp extends StatelessWidget {
 
   // design for all screens
   Widget _customSignUp() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
+    return ListView(
+      shrinkWrap: true,
+      // crossAxisAlignment: CrossAxisAlignment.start,
+      // mainAxisSize: MainAxisSize.min,
       children: [
         SizedBox(height: sH(24)),
         CustomTextField(
@@ -161,8 +162,7 @@ class SignUp extends StatelessWidget {
         SizedBox(height: sH(18)),
         Align(
           alignment: Alignment.center,
-          child:
-           RichText(
+          child: RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
               style: TextStyles.titleSmall.copyWith(

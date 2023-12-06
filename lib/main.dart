@@ -1,4 +1,4 @@
-import 'package:fiftyonestores/src/modules/dashboard/Main.dart';
+import 'package:fiftyonestores/Landing.dart';
 import 'package:fiftyonestores/src/services/Languages.dart';
 import 'package:fiftyonestores/styles.dart';
 import 'package:flutter/material.dart';
@@ -32,11 +32,11 @@ class FiftyOneStores extends StatelessWidget {
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         focusColor: Colors.transparent,
-        scaffoldBackgroundColor: Palette.bgLightColor,
+        scaffoldBackgroundColor: Palette.bgColor,
         useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Main(),
+      home: const Landing(),
     );
   }
 }

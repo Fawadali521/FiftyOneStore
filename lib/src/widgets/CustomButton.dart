@@ -37,7 +37,7 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.symmetric(
-            vertical: verticalPadding ?? sH(12),
+            vertical: verticalPadding ?? 12,
             horizontal: horizontalPadding ?? 0),
         alignment: Alignment.center,
         decoration: BoxDecoration(
