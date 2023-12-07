@@ -8,15 +8,35 @@ class DashboardState extends LoadingState {
   final RxBool _isExpand = true.obs;
   final RxInt _selectedIndex = 0.obs;
   final RxInt _selectedPageIndex = 0.obs;
+  final RxString _primeCategoryName = ''.obs;
+  final RxString _primeCategoryDescription = ''.obs;
+  final RxString _categoryName = ''.obs;
+  final RxString _subCategoryName = ''.obs;
+  final RxString _categoryDescription = ''.obs;
   bool get isExpand => _isExpand.value;
   int get selectedIndex => _selectedIndex.value;
   int get selectedPageIndex => _selectedPageIndex.value;
+  String get primeCategoryName => _primeCategoryName.value;
+  String get primeCategoryDescription => _primeCategoryDescription.value;
+  String get categoryName => _categoryName.value;
+  String get subCategoryName => _subCategoryName.value;
+  String get categoryDescription => _categoryDescription.value;
   set isExpand(value) => _isExpand.value = value;
   set selectedIndex(value) => _selectedIndex.value = value;
   set selectedPageIndex(value) => _selectedPageIndex.value = value;
+  set primeCategoryName(value) => _primeCategoryName.value = value;
+  set primeCategoryDescription(value) =>
+      _primeCategoryDescription.value = value;
+  set categoryName(value) => _categoryName.value = value;
+  set subCategoryName(value) => _subCategoryName.value = value;
+  set categoryDescription(value) => _categoryDescription.value = value;
   final RxString selectedPrimeCategory = ''.obs;
   final TextEditingController expireDate = TextEditingController();
   final RxBool switchValue = false.obs;
+
+  /// drop file in sub category
+  final RxString subCageryFileName = ''.obs;
+  final RxBool isDropHover = false.obs;
 
   ///dummy data
   final RxList<String> selectPrimesCategores = [

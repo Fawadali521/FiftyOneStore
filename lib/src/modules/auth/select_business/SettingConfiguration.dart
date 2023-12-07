@@ -340,8 +340,6 @@ class SettingConfiguration extends StatelessWidget {
         CustomButton(
           onTap: () {
             if (controller.settingConfiguration.currentState!.validate()) {
-              print("check is iio==>${controller.state.isIndividual.value}");
-
               /// branch detail add
               if (isBranchDetailSAdd == true) {
                 Get.to(() => BranchManagerDetails());

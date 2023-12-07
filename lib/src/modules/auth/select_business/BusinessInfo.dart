@@ -9,7 +9,6 @@ class BusinessInfo extends StatelessWidget {
   final SelectBusinessController controller = Get.find();
   @override
   Widget build(BuildContext context) {
-    print("check which slec==${controller.state.isIndividual.value}");
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) => Scaffold(
         body: Form(

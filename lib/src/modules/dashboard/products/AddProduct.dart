@@ -1,5 +1,7 @@
 // ignore_for_file: file_names
 
+import 'package:flutter_dropzone/flutter_dropzone.dart';
+
 import '../../index.dart';
 
 class AddProduct extends StatelessWidget {
@@ -230,47 +232,72 @@ class AddProduct extends StatelessWidget {
                   ),
 
                   SizedBox(height: sH(16)),
-                  Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.symmetric(vertical: sH(18)),
-                    decoration: const BoxDecoration(
-                      color: Palette.bgTextFeildColor,
-                      borderRadius: BorderStyles.normal,
-                    ),
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          primeFileAddIcon,
-                          height: 40,
-                          width: 40,
+                  Obx(
+                    () => Container(
+                      width: double.infinity,
+                      height: 150,
+                      padding: EdgeInsets.symmetric(vertical: sH(18)),
+                      decoration: BoxDecoration(
+                          color: Palette.bgTextFeildColor,
+                          borderRadius: BorderStyles.normal,
+                          border: Border.all(
+                            color: controller.state.isDropHover.value
+                                ? Palette.primaryColor
+                                : Palette.bgTextFeildColor,
+                          )),
+                      child: Center(
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            buildDropFile(context),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  primeFileAddIcon,
+                                  height: 40,
+                                  width: 40,
+                                ),
+                                SizedBox(height: sH(12)),
+                                controller.state.subCageryFileName.value != ''
+                                    ? Text(
+                                        controller
+                                            .state.subCageryFileName.value,
+                                        style: TextStyles.headlineSmall,
+                                      )
+                                    : RichText(
+                                        textAlign: TextAlign.center,
+                                        text: TextSpan(
+                                          style: TextStyles.headlineSmall,
+                                          children: [
+                                            TextSpan(
+                                              text:
+                                                  'Drop your file here, or '.tr,
+                                            ),
+                                            TextSpan(
+                                              text: 'Browse'.tr,
+                                              style: TextStyles.headlineSmall
+                                                  .copyWith(
+                                                      color:
+                                                          Palette.primaryColor),
+                                              recognizer: TapGestureRecognizer()
+                                                ..onTap = () {},
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                SizedBox(height: sH(12)),
+                                Text(
+                                  "Maximum file size 50mb".tr,
+                                  style: TextStyles.bodyMedium.copyWith(
+                                    color: Palette.blackColor.withOpacity(0.5),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                        SizedBox(height: sH(12)),
-                        RichText(
-                          textAlign: TextAlign.center,
-                          text: TextSpan(
-                            style: TextStyles.headlineSmall,
-                            children: [
-                              TextSpan(
-                                text: 'Drop your file here, or '.tr,
-                              ),
-                              TextSpan(
-                                text: 'Browse'.tr,
-                                style: TextStyles.headlineSmall
-                                    .copyWith(color: Palette.primaryColor),
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {},
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(height: sH(12)),
-                        Text(
-                          "Maximum file size 50mb".tr,
-                          style: TextStyles.bodyMedium.copyWith(
-                            color: Palette.blackColor.withOpacity(0.5),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                   SizedBox(height: sH(24)),
@@ -294,4 +321,34 @@ class AddProduct extends StatelessWidget {
       ),
     );
   }
+
+  Widget buildDropFile(BuildContext context) => Builder(
+        builder: (context) => DropzoneView(
+          operation: DragOperation.copy,
+          cursor: CursorType.grab,
+          onCreated: (ctrl) => controller.dropZoneViewController = ctrl,
+          // onLoaded: () => print('Zone 1 loaded'),
+          onError: (ev) {
+            print('Drop file error error: $ev');
+          },
+          onHover: () {
+            controller.state.isDropHover.value = true;
+          },
+          onLeave: () {
+            controller.state.isDropHover.value = false;
+          },
+          onDrop: (ev) async {
+            // print('Zone 1 drop: ${ev.name}');
+            controller.state.subCageryFileName.value = ev.name;
+            controller.state.isDropHover.value = false;
+            // final bytes = await controller1.getFileData(ev);
+          },
+          onDropInvalid: (ev) {
+            print('Drop file invalid MIME: $ev');
+          },
+          onDropMultiple: (ev) async {
+            print(' drop file multiple: $ev');
+          },
+        ),
+      );
 }
