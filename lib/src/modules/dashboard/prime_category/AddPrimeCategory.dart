@@ -1,9 +1,5 @@
 // ignore_for_file: file_names
 
-import 'package:fiftyonestores/src/services/FilePikerService.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:flutter_dropzone/flutter_dropzone.dart';
-
 import '../../index.dart';
 
 class AddPrimeCategory extends StatelessWidget {
@@ -104,7 +100,7 @@ class AddPrimeCategory extends StatelessWidget {
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
-                              buildDropFile(context),
+                              controller.buildDropFile(context),
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -138,7 +134,7 @@ class AddPrimeCategory extends StatelessWidget {
                                                 recognizer:
                                                     TapGestureRecognizer()
                                                       ..onTap = () {
-                                                        pickFile();
+                                                        controller.pickFile();
                                                       },
                                               ),
                                             ],
@@ -185,45 +181,5 @@ class AddPrimeCategory extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Widget buildDropFile(BuildContext context) => Builder(
-        builder: (context) => DropzoneView(
-          operation: DragOperation.copy,
-          cursor: CursorType.grab,
-          onCreated: (ctrl) => controller.dropZoneViewController = ctrl,
-          // onLoaded: () => print('Zone 1 loaded'),
-          onError: (ev) {
-            print('Drop file error error: $ev');
-          },
-          onHover: () {
-            controller.state.isDropHover.value = true;
-          },
-          onLeave: () {
-            controller.state.isDropHover.value = false;
-          },
-          onDrop: (ev) async {
-            // print('Zone 1 drop: ${ev.name}');
-            controller.state.subCageryFileName.value = ev.name;
-            controller.state.isDropHover.value = false;
-            // final bytes = await controller1.getFileData(ev);
-          },
-          onDropInvalid: (ev) {
-            print('Drop file invalid MIME: $ev');
-          },
-          onDropMultiple: (ev) async {
-            print(' drop file multiple: $ev');
-          },
-        ),
-      );
-}
-
-pickFile() async {
-  FilePickerResult? result;
-  result = await FilePickerService().selectFile();
-  if (result != null) {
-    print("result not null => ${result.files.single.name}");
-  } else {
-    print("file null");
   }
 }

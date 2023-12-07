@@ -1,7 +1,5 @@
 // ignore_for_file: file_names
 
-import 'package:flutter_dropzone/flutter_dropzone.dart';
-
 import '../../index.dart';
 
 class AddProduct extends StatelessWidget {
@@ -249,7 +247,7 @@ class AddProduct extends StatelessWidget {
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            buildDropFile(context),
+                            controller.buildDropFile(context),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -281,7 +279,9 @@ class AddProduct extends StatelessWidget {
                                                       color:
                                                           Palette.primaryColor),
                                               recognizer: TapGestureRecognizer()
-                                                ..onTap = () {},
+                                                ..onTap = () {
+                                                  controller.pickFile();
+                                                },
                                             ),
                                           ],
                                         ),
@@ -321,34 +321,4 @@ class AddProduct extends StatelessWidget {
       ),
     );
   }
-
-  Widget buildDropFile(BuildContext context) => Builder(
-        builder: (context) => DropzoneView(
-          operation: DragOperation.copy,
-          cursor: CursorType.grab,
-          onCreated: (ctrl) => controller.dropZoneViewController = ctrl,
-          // onLoaded: () => print('Zone 1 loaded'),
-          onError: (ev) {
-            print('Drop file error error: $ev');
-          },
-          onHover: () {
-            controller.state.isDropHover.value = true;
-          },
-          onLeave: () {
-            controller.state.isDropHover.value = false;
-          },
-          onDrop: (ev) async {
-            // print('Zone 1 drop: ${ev.name}');
-            controller.state.subCageryFileName.value = ev.name;
-            controller.state.isDropHover.value = false;
-            // final bytes = await controller1.getFileData(ev);
-          },
-          onDropInvalid: (ev) {
-            print('Drop file invalid MIME: $ev');
-          },
-          onDropMultiple: (ev) async {
-            print(' drop file multiple: $ev');
-          },
-        ),
-      );
 }
