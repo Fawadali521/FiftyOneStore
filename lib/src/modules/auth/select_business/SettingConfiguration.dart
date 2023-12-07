@@ -1,15 +1,16 @@
 // ignore_for_file: file_names
 
 import 'package:fiftyonestores/src/modules/auth/select_business/BranchDetails.dart';
-import 'package:fiftyonestores/src/states/selecte_business/SelectBusinessController.dart';
+import 'package:fiftyonestores/src/modules/auth/select_business/BranchManagerDetails.dart';
+import 'package:fiftyonestores/src/modules/dashboard/Dashboard.dart';
 
 import '../../index.dart';
 
 class SettingConfiguration extends StatelessWidget {
-  SettingConfiguration({super.key});
+  final bool? isBranchDetailSAdd;
+  SettingConfiguration({super.key, this.isBranchDetailSAdd});
 
-  final SelectBusinessController controller =
-      Get.put(SelectBusinessController());
+  final SelectBusinessController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -165,6 +166,9 @@ class SettingConfiguration extends StatelessWidget {
                 onEditingComplete: onFieldSubmitted,
                 controller: textEditingController,
                 hintText: "Select currency".tr,
+                validator: (value) {
+                  return controller.validateField(value, 'Field'.tr);
+                },
                 prefixIcon: Padding(
                   padding: const EdgeInsets.only(left: 16, right: 24),
                   child: Image.asset(
@@ -242,6 +246,9 @@ class SettingConfiguration extends StatelessWidget {
                 onEditingComplete: onFieldSubmitted,
                 controller: textEditingController,
                 hintText: 'Set time zone'.tr,
+                validator: (value) {
+                  return controller.validateField(value, 'Field'.tr);
+                },
                 prefixIcon: Padding(
                   padding: const EdgeInsets.only(left: 16, right: 24),
                   child: Image.asset(
@@ -261,6 +268,9 @@ class SettingConfiguration extends StatelessWidget {
           onChange: (value) {
             controller.state.texRate = value;
           },
+          validator: (value) {
+            return controller.validateField(value, 'Field'.tr);
+          },
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -273,7 +283,12 @@ class SettingConfiguration extends StatelessWidget {
         ),
         SizedBox(height: sH(16)),
         CustomTextField(
+          obscureText: false,
+          hintText: 'Fiscal year start'.tr,
           controller: controller.state.fiscalStartYear,
+          validator: (value) {
+            return controller.validateField(value, 'Fiscal year start'.tr);
+          },
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -319,14 +334,32 @@ class SettingConfiguration extends StatelessWidget {
               },
             );
           },
-          obscureText: false,
-          hintText: 'Fiscal year start'.tr,
         ),
 
         SizedBox(height: sH(24)),
         CustomButton(
           onTap: () {
-            Get.to(() => BranchDetails());
+            if (controller.settingConfiguration.currentState!.validate()) {
+              print("check is iio==>${controller.state.isIndividual.value}");
+
+              /// branch detail add
+              if (isBranchDetailSAdd == true) {
+                Get.to(() => BranchManagerDetails());
+                controller.settingConfiguration.currentState!.reset();
+              }
+
+              /// corpporate setting configuration add
+              else {
+                if (controller.state.isIndividual.value) {
+                  /// goto dashboard
+                  Get.offAll(() => Dashboard());
+                } else {
+                  ///add branches
+                  Get.to(() => BranchDetails());
+                  controller.settingConfiguration.currentState!.reset();
+                }
+              }
+            }
           },
           text: 'Next'.tr,
         ),

@@ -1,7 +1,6 @@
 // ignore_for_file: file_names
 
 import 'package:fiftyonestores/src/modules/auth/select_business/SettingConfiguration.dart';
-import 'package:fiftyonestores/src/states/selecte_business/SelectBusinessController.dart';
 
 import '../../index.dart';
 
@@ -13,8 +12,7 @@ class ContactDetails extends StatefulWidget {
 }
 
 class _ContactDetailsState extends State<ContactDetails> {
-  final SelectBusinessController controller =
-      Get.put(SelectBusinessController());
+  final SelectBusinessController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -111,6 +109,9 @@ class _ContactDetailsState extends State<ContactDetails> {
           onChange: (value) {
             controller.state.contactContact = value;
           },
+          validator: (value) {
+            return controller.validateField(value, 'Number'.tr);
+          },
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -127,6 +128,7 @@ class _ContactDetailsState extends State<ContactDetails> {
           onChange: (value) {
             controller.state.contactEmail = value;
           },
+          validator: controller.validateEmail,
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -142,6 +144,9 @@ class _ContactDetailsState extends State<ContactDetails> {
           hintText: 'Owner name'.tr,
           onChange: (value) {
             controller.state.ownerName = value;
+          },
+          validator: (value) {
+            return controller.validateField(value, 'Owner name'.tr);
           },
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
@@ -235,7 +240,15 @@ class _ContactDetailsState extends State<ContactDetails> {
         SizedBox(height: sH(24)),
         CustomButton(
           onTap: () {
-            Get.to(() => SettingConfiguration());
+            if (controller.contactDetails.currentState!.validate()) {
+              if (controller.state.selectIndexBusinessType.value < 0) {
+                SnackBarToast(
+                  message: 'Please select business type',
+                );
+                return;
+              }
+              Get.to(() => SettingConfiguration());
+            }
           },
           text: 'Next'.tr,
         ),

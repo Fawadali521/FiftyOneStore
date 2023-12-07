@@ -70,6 +70,7 @@ class SignUp extends StatelessWidget {
           onChange: (value) {
             controller.state.email = value;
           },
+          validator: controller.validateEmail,
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -86,6 +87,7 @@ class SignUp extends StatelessWidget {
           onChange: (value) {
             controller.state.newPassword = value;
           },
+          validator: controller.validatePassword,
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -113,6 +115,7 @@ class SignUp extends StatelessWidget {
           onChange: (value) {
             controller.state.confirmPassword = value;
           },
+          validator: controller.validateConfirmPassword,
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -142,7 +145,7 @@ class SignUp extends StatelessWidget {
               style: TextStyles.titleSmall,
             ),
             InkWell(
-              onTap: () => Get.to(() => SignIn()),
+              onTap: () => Get.offAll(() => SignIn()),
               child: Text(
                 "signin".tr,
                 style: TextStyles.titleSmall.copyWith(
@@ -155,7 +158,9 @@ class SignUp extends StatelessWidget {
         SizedBox(height: sH(24)),
         CustomButton(
           onTap: () {
-            Get.to(() => BusinessType());
+            if (controller.signUpFormKey.currentState!.validate()) {
+              Get.to(() => BusinessType());
+            }
           },
           text: 'signup'.tr,
         ),

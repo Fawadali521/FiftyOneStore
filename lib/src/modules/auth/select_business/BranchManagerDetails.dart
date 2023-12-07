@@ -1,14 +1,12 @@
 // ignore_for_file: file_names
 
-import 'package:fiftyonestores/src/modules/dashboard/main.dart';
-import 'package:fiftyonestores/src/states/selecte_business/SelectBusinessController.dart';
+import 'package:fiftyonestores/src/modules/dashboard/Dashboard.dart';
 
 import '../../index.dart';
 
 class BranchManagerDetails extends StatelessWidget {
   BranchManagerDetails({super.key});
-  final SelectBusinessController controller =
-      Get.put(SelectBusinessController());
+  final SelectBusinessController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -101,6 +99,9 @@ class BranchManagerDetails extends StatelessWidget {
           onChange: (value) {
             controller.state.managerName = value;
           },
+          validator: (value) {
+            return controller.validateField(value, 'Field'.tr);
+          },
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -116,6 +117,9 @@ class BranchManagerDetails extends StatelessWidget {
           hintText: 'number'.tr,
           onChange: (value) {
             controller.state.managerContact = value;
+          },
+          validator: (value) {
+            return controller.validateField(value, 'Number'.tr);
           },
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
@@ -133,6 +137,7 @@ class BranchManagerDetails extends StatelessWidget {
           onChange: (value) {
             controller.state.managerEmail = value;
           },
+          validator: controller.validateEmail,
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -146,7 +151,9 @@ class BranchManagerDetails extends StatelessWidget {
         SizedBox(height: sH(24)),
         CustomButton(
           onTap: () {
-            Get.offAll(() => Main());
+            if (controller.branchManagerDetails.currentState!.validate()) {
+              Get.to(() => Dashboard());
+            }
           },
           text: 'Next'.tr,
         ),

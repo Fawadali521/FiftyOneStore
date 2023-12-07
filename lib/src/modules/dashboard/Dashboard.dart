@@ -38,13 +38,9 @@ class Dashboard extends StatelessWidget {
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          //
-          // side bar drawer
-          //
+          /// side bar drawer
           DrawerWeb(),
-          //
           // main home screen
-          //
           Expanded(
             child: Obx(
               () => Padding(
@@ -58,12 +54,12 @@ class Dashboard extends StatelessWidget {
                     _topBar(),
                     // SizedBox(height: sH(24)),
                     pages[controller.state.selectedPageIndex],
+// AddProduct(),
+                    // AddSubCategory(),
+                    // AddPrimeCategory(),
                     // Products(),
                     // PricingDetails(),
                     // IdentificationAndSourcing(),
-                    // AddProduct(),
-                    // AddSubCategory(),
-                    // AddPrimeCategory(),
                   ],
                 ),
               ),

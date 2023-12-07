@@ -75,6 +75,12 @@ class CustomTextField extends StatelessWidget {
         hintStyle: TextStyles.titleSmall.copyWith(
           color: Palette.grayColor,
         ),
+        focusedErrorBorder: const OutlineInputBorder(
+          borderRadius: BorderStyles.normal,
+          borderSide: BorderSide(
+            color: Palette.bgTextFeildColor,
+          ),
+        ),
         enabledBorder: const OutlineInputBorder(
           borderRadius: BorderStyles.normal,
           borderSide: BorderSide(

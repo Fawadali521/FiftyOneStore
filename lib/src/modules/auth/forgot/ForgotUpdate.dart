@@ -7,7 +7,7 @@ import '../../index.dart';
 
 class ForgotUpdate extends StatelessWidget {
   ForgotUpdate({super.key});
-  final ForgotController controller = Get.put(ForgotController());
+  final ForgotController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -109,6 +109,7 @@ class ForgotUpdate extends StatelessWidget {
           onChange: (value) {
             controller.state.newPassword = value;
           },
+          validator: controller.validatePassword,
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -136,6 +137,7 @@ class ForgotUpdate extends StatelessWidget {
           onChange: (value) {
             controller.state.confirmPassword = value;
           },
+          validator: controller.validateConfirmPassword,
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -160,7 +162,12 @@ class ForgotUpdate extends StatelessWidget {
         SizedBox(height: sH(24)),
         CustomButton(
           onTap: () {
-            Get.offAll(() => SignIn());
+            if (controller.forgotUpdateFormKey.currentState!.validate()) {
+              SnackBarToast(
+                message: 'Password updated successfully'.tr,
+              );
+              Get.offAll(() => SignIn());
+            }
           },
           text: 'Continue'.tr,
         ),

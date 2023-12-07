@@ -1,7 +1,6 @@
 // ignore_for_file: file_names
 
 import 'package:fiftyonestores/src/modules/auth/select_business/BusinessInfo.dart';
-import 'package:fiftyonestores/src/states/selecte_business/SelectBusinessController.dart';
 
 import '../../index.dart';
 
@@ -69,10 +68,10 @@ class BusinessType extends StatelessWidget {
                   onTap: controller.selectTypeCorporate,
                   title: 'corporate'.tr,
                   icon: corporateIcon,
-                  backGroundColor: controller.state.isCorporate
+                  backGroundColor: controller.state.isCorporate.value
                       ? Palette.bgTextFeildColor
                       : Palette.bgWhiteColor,
-                  color: controller.state.isCorporate
+                  color: controller.state.isCorporate.value
                       ? Palette.primaryColor
                       : Palette.grayColor,
                 ),
@@ -85,10 +84,10 @@ class BusinessType extends StatelessWidget {
                   onTap: controller.selectTypeIndividual,
                   title: 'individual'.tr,
                   icon: individualIcon,
-                  backGroundColor: controller.state.isIndividual
+                  backGroundColor: controller.state.isIndividual.value
                       ? Palette.bgTextFeildColor
                       : Palette.bgWhiteColor,
-                  color: controller.state.isIndividual
+                  color: controller.state.isIndividual.value
                       ? Palette.primaryColor
                       : Palette.grayColor,
                 ),
@@ -99,7 +98,14 @@ class BusinessType extends StatelessWidget {
         SizedBox(height: sH(24)),
         CustomButton(
           onTap: () {
-            Get.to(() => BusinessInfo());
+            if (controller.state.isCorporate.value ||
+                controller.state.isIndividual.value) {
+              Get.to(() => BusinessInfo());
+            } else {
+              SnackBarToast(
+                message: 'Please select business type',
+              );
+            }
           },
           text: 'Next'.tr,
         ),

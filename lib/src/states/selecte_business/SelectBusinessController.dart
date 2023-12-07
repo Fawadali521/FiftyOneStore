@@ -12,18 +12,35 @@ class SelectBusinessController extends GetxController {
   final settingConfiguration = GlobalKey<FormState>();
   final branchDetails = GlobalKey<FormState>();
   void selectTypeCorporate() {
-    state.isCorporate = true;
-    state.isIndividual = false;
+    state.isCorporate.value = true;
+    state.isIndividual.value = false;
   }
 
   void selectTypeIndividual() {
-    state.isIndividual = true;
-    state.isCorporate = false;
+    state.isIndividual.value = true;
+    state.isCorporate.value = false;
   }
 
   void selectBusinessType(int index) async {
     if (index >= 0 && index < state.businessTypes.length) {
       state.selectIndexBusinessType.value = index;
     }
+  }
+
+  String? validateField(String? value, String fieldName) {
+    if (value == null || value.isEmpty) {
+      return '$fieldName ${'is required'.tr}';
+    }
+    return null;
+  }
+
+  String? validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Email is required'.tr;
+    }
+    if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+      return 'emailaddress'.tr;
+    }
+    return null;
   }
 }

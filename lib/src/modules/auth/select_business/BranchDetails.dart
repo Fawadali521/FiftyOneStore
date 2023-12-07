@@ -1,14 +1,12 @@
 // ignore_for_file: file_names
 
-import 'package:fiftyonestores/src/modules/auth/select_business/BranchManagerDetails.dart';
-import 'package:fiftyonestores/src/states/selecte_business/SelectBusinessController.dart';
+import 'package:fiftyonestores/src/modules/auth/select_business/SettingConfiguration.dart';
 
 import '../../index.dart';
 
 class BranchDetails extends StatelessWidget {
   BranchDetails({super.key});
-  final SelectBusinessController controller =
-      Get.put(SelectBusinessController());
+  final SelectBusinessController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -104,6 +102,9 @@ class BranchDetails extends StatelessWidget {
           onChange: (value) {
             controller.state.branchName = value;
           },
+          validator: (value) {
+            return controller.validateField(value, 'Field'.tr);
+          },
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -119,6 +120,9 @@ class BranchDetails extends StatelessWidget {
           hintText: 'number'.tr,
           onChange: (value) {
             controller.state.branchContact = value;
+          },
+          validator: (value) {
+            return controller.validateField(value, 'Number'.tr);
           },
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
@@ -136,6 +140,7 @@ class BranchDetails extends StatelessWidget {
           onChange: (value) {
             controller.state.branchEmail = value;
           },
+          validator: controller.validateEmail,
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -152,6 +157,9 @@ class BranchDetails extends StatelessWidget {
           onChange: (value) {
             controller.state.branchAddress = value;
           },
+          validator: (value) {
+            return controller.validateField(value, 'Address'.tr);
+          },
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -165,7 +173,9 @@ class BranchDetails extends StatelessWidget {
         SizedBox(height: sH(24)),
         CustomButton(
           onTap: () {
-            Get.to(() => BranchManagerDetails());
+            if (controller.branchDetails.currentState!.validate()) {
+              Get.to(() => SettingConfiguration(isBranchDetailSAdd: true));
+            }
           },
           text: 'Next'.tr,
         ),

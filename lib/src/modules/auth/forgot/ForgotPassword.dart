@@ -87,47 +87,53 @@ class ForgotPassword extends StatelessWidget {
 
   // design for all screens
   Widget _customForgotPassword() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SizedBox(height: sH(12)),
-        Text(
-          "ForgotBodyText".tr,
-          style: TextStyles.titleSmall.copyWith(
-            color: Palette.grayColor,
+    return Form(
+      key: controller.forgotFormKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(height: sH(12)),
+          Text(
+            "ForgotBodyText".tr,
+            style: TextStyles.titleSmall.copyWith(
+              color: Palette.grayColor,
+            ),
           ),
-        ),
-        SizedBox(height: sH(16)),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            CustomTextField(
-              hintText: 'email'.tr,
-              onChange: (value) {
-                controller.state.email = value;
-              },
-              prefixIcon: Padding(
-                padding: const EdgeInsets.only(left: 16, right: 24),
-                child: Image.asset(
-                  emailIcon,
-                  height: 24,
-                  width: 24,
-                  color: Palette.primaryColor,
+          SizedBox(height: sH(16)),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CustomTextField(
+                hintText: 'email'.tr,
+                onChange: (value) {
+                  controller.state.email = value;
+                },
+                validator: controller.validateEmail,
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.only(left: 16, right: 24),
+                  child: Image.asset(
+                    emailIcon,
+                    height: 24,
+                    width: 24,
+                    color: Palette.primaryColor,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: sH(24)),
-            CustomButton(
-              onTap: () {
-                Get.to(() => ForgotOtp());
-              },
-              text: 'sendOtp'.tr,
-            ),
-          ],
-        ),
-      ],
+              SizedBox(height: sH(24)),
+              CustomButton(
+                onTap: () {
+                  if (controller.forgotFormKey.currentState!.validate()) {
+                    Get.to(ForgotOtp());
+                  }
+                },
+                text: 'sendOtp'.tr,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

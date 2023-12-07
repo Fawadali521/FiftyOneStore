@@ -1,16 +1,15 @@
 // ignore_for_file: file_names
 
 import 'package:fiftyonestores/src/modules/auth/select_business/ContactDetails.dart';
-import 'package:fiftyonestores/src/states/selecte_business/SelectBusinessController.dart';
 
 import '../../index.dart';
 
 class BusinessInfo extends StatelessWidget {
   BusinessInfo({super.key});
-  final SelectBusinessController controller =
-      Get.put(SelectBusinessController());
+  final SelectBusinessController controller = Get.find();
   @override
   Widget build(BuildContext context) {
+    print("check which slec==${controller.state.isIndividual.value}");
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) => Scaffold(
         body: Form(
@@ -101,6 +100,9 @@ class BusinessInfo extends StatelessWidget {
           onChange: (value) {
             controller.state.orgName = value;
           },
+          validator: (value) {
+            return controller.validateField(value, 'Organization name'.tr);
+          },
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -117,6 +119,9 @@ class BusinessInfo extends StatelessWidget {
           onChange: (value) {
             controller.state.orgAddress = value;
           },
+          validator: (value) {
+            return controller.validateField(value, 'Address'.tr);
+          },
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -130,7 +135,9 @@ class BusinessInfo extends StatelessWidget {
         SizedBox(height: sH(24)),
         CustomButton(
           onTap: () {
-            Get.to(() => const ContactDetails());
+            if (controller.orgInfo.currentState!.validate()) {
+              Get.to(() => const ContactDetails());
+            }
           },
           text: 'Next'.tr,
         ),

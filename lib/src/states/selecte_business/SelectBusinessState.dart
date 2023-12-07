@@ -5,16 +5,16 @@ import 'package:fiftyonestores/src/models/BusinessTypeModel.dart';
 import '../../modules/index.dart';
 
 class SelectBusinessState extends LoadingState {
-  final RxBool _isCorporate = false.obs;
-  final RxBool _isIndividual = false.obs;
+  final RxBool isCorporate = false.obs;
+  final RxBool isIndividual = false.obs;
   final RxString _orgName = ''.obs;
   final RxString _orgAddress = ''.obs;
-  bool get isCorporate => _isCorporate.value;
-  bool get isIndividual => _isIndividual.value;
+  // bool get isCorporate => _isCorporate.value;
+  // bool get isIndividual => _isIndividual.value;
   String? get orgAddress => _orgAddress.value;
   String? get orgName => _orgName.value;
-  set isCorporate(value) => _isCorporate.value = value;
-  set isIndividual(value) => _isIndividual.value = value;
+  // set isCorporate(value) => _isCorporate.value = value;
+  // set isIndividual(value) => _isIndividual.value = value;
   set orgAddress(value) => _orgAddress.value = value;
   set orgName(value) => _orgName.value = value;
 

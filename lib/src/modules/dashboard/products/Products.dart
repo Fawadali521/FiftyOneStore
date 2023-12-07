@@ -89,38 +89,38 @@ class Products extends StatelessWidget {
                     children: [
                       CustomProductTitle(
                         width: width * 0.130,
-                        title: "Product name",
+                        title: "Product name".tr,
                         rightMargin: width * 0.008,
                       ),
                       const Spacer(),
                       CustomProductTitle(
                         width: width * 0.170,
-                        title: 'Description',
+                        title: 'Description'.tr,
                         rightMargin: width * 0.008,
                       ),
                       CustomProductTitle(
                         width: width * 0.130,
-                        title: 'Prime Categories',
+                        title: 'Prime Categories'.tr,
                         rightMargin: width * 0.008,
                       ),
                       CustomProductTitle(
                         width: width * 0.110,
-                        title: 'Subcategory',
+                        title: 'Subcategory'.tr,
                         rightMargin: width * 0.008,
                       ),
                       CustomProductTitle(
                         width: width * 0.170,
-                        title: 'SKU',
+                        title: 'SKU'.tr,
                         rightMargin: width * 0.008,
                       ),
                       CustomProductTitle(
                         width: width * 0.110,
-                        title: 'Barcodes',
+                        title: 'Barcodes'.tr,
                         rightMargin: width * 0.008,
                       ),
                       CustomProductTitle(
                         width: width * 0.070,
-                        title: 'Actions',
+                        title: 'Actions'.tr,
                       ),
                     ],
                   ),

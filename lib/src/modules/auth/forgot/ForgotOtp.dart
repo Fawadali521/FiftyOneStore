@@ -8,7 +8,7 @@ import '../../index.dart';
 
 class ForgotOtp extends StatelessWidget {
   ForgotOtp({super.key});
-  final ForgotController controller = Get.put(ForgotController());
+  final ForgotController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(

@@ -2,7 +2,7 @@
 
 import 'package:fiftyonestores/src/modules/auth/forgot/ForgotPassword.dart';
 import 'package:fiftyonestores/src/modules/auth/signup/signup.dart';
-import 'package:fiftyonestores/src/modules/dashboard/main.dart';
+import 'package:fiftyonestores/src/modules/dashboard/Dashboard.dart';
 import 'package:fiftyonestores/src/states/signin/LoginController.dart';
 
 import '../../index.dart';
@@ -67,6 +67,7 @@ class SignIn extends StatelessWidget {
           onChange: (value) {
             controller.state.email = value;
           },
+          validator: controller.validateEmail,
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -83,6 +84,7 @@ class SignIn extends StatelessWidget {
           onChange: (value) {
             controller.state.password = value;
           },
+          validator: controller.validatePassword,
           prefixIcon: Padding(
             padding: const EdgeInsets.only(left: 16, right: 24),
             child: Image.asset(
@@ -154,7 +156,10 @@ class SignIn extends StatelessWidget {
         SizedBox(height: sH(24)),
         CustomButton(
           onTap: () {
-            Get.to(() => Main());
+            if (controller.loginFormKey.currentState!.validate()) {
+              Get.to(() => Dashboard());
+              controller.loginFormKey.currentState!.reset();
+            }
           },
           text: 'signInButton'.tr,
         ),
