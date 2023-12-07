@@ -57,7 +57,7 @@ class Main extends StatelessWidget {
                     // /top bar
                     _topBar(),
                     // SizedBox(height: sH(24)),
-
+                    // Products(),
                     pages[controller.state.selectedPageIndex],
                     // PricingDetails(),
                     // IdentificationAndSourcing(),

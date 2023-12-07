@@ -65,8 +65,7 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         helperMaxLines: hintMaxLines ?? 1,
         errorMaxLines: 3,
-        contentPadding:
-            EdgeInsets.only(left: sW(20), top: sH(20), right: sW(20)),
+        contentPadding: EdgeInsets.only(left: sW(20), top: 20, right: sW(20)),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         counterText: '',

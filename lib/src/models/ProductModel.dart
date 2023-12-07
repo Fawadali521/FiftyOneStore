@@ -6,6 +6,10 @@ class ProductModel {
   String? subTitle;
   String? description;
   String? image;
+  String? primeCategory;
+  String? subCategory;
+  String? sku;
+  String? barcode;
 
   ProductModel({
     this.id,
@@ -13,6 +17,10 @@ class ProductModel {
     this.description,
     this.image,
     this.subTitle,
+    this.primeCategory,
+    this.subCategory,
+    this.sku,
+    this.barcode,
   });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
