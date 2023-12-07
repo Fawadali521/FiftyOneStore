@@ -13,8 +13,8 @@ import 'package:fiftyonestores/src/modules/dashboard/subcategory/SubCategory.dar
 
 import '../index.dart';
 
-class Main extends StatelessWidget {
-  Main({super.key});
+class Dashboard extends StatelessWidget {
+  Dashboard({super.key});
   final DashboardController controller = Get.put(DashboardController());
   final List<Widget> pages = [
     PrimeCategory(),
@@ -57,8 +57,8 @@ class Main extends StatelessWidget {
                     // /top bar
                     _topBar(),
                     // SizedBox(height: sH(24)),
-                    // Products(),
                     pages[controller.state.selectedPageIndex],
+                    // Products(),
                     // PricingDetails(),
                     // IdentificationAndSourcing(),
                     // AddProduct(),

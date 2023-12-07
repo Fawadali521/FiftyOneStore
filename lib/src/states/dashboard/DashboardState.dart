@@ -32,6 +32,20 @@ class DashboardState extends LoadingState {
     'Automotive',
     // Add more product categories as needed
   ].obs;
+
+  final RxList<ProductModel> products = <ProductModel>[
+    ProductModel(
+      title: "Headphones audio for listen",
+      primeCategory: "Electronics",
+      image: electronic,
+      subCategory: "Headphones",
+      sku: "343318647_PK-1764656991",
+      barcode: "344656991",
+      description:
+          "Explore the cutting-edge world of electronics, where innovation meets functionality. From sleek smartphones to powerful laptops and smart home devices."
+              .tr,
+    ),
+  ].obs;
   final RxList<ProductModel> primeProducts = <ProductModel>[
     ProductModel(
       title: "Electronics",
@@ -46,20 +60,6 @@ class DashboardState extends LoadingState {
       title: "Headphones audio for listen",
       subTitle: "Electronics",
       image: electronic,
-      description:
-          "Explore the cutting-edge world of electronics, where innovation meets functionality. From sleek smartphones to powerful laptops and smart home devices."
-              .tr,
-    ),
-  ].obs;
-
-  final RxList<ProductModel> products = <ProductModel>[
-    ProductModel(
-      title: "Headphones audio for listen",
-      primeCategory: "Electronics",
-      image: electronic,
-      subCategory: "Headphones",
-      sku: "343318647_PK-1764656991",
-      barcode: "344656991",
       description:
           "Explore the cutting-edge world of electronics, where innovation meets functionality. From sleek smartphones to powerful laptops and smart home devices."
               .tr,

@@ -9,6 +9,7 @@ class Products extends StatelessWidget {
   Products({super.key});
   @override
   Widget build(BuildContext context) {
+    double height = Get.height > 550 ? Get.height - 110 : 550;
     double initWidth = controller.state.isExpand
         ? Get.width - (273 + sW(80))
         : Get.width - (113 + sW(52));
@@ -17,7 +18,7 @@ class Products extends StatelessWidget {
         : controller.state.isExpand
             ? Get.width - (273 + sW(80))
             : Get.width - (113 + sW(52));
-    double height = Get.height > 550 ? Get.height - 110 : 550;
+
     return Container(
       height: height,
       width: width,
