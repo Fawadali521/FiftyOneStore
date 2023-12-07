@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:fiftyonestores/src/modules/dashboard/Dashboard.dart';
+import 'package:fiftyonestores/src/modules/auth/signin/SignIn.dart';
 
 import 'src/modules/index.dart';
 
@@ -25,7 +25,7 @@ class LandingState extends State<Landing> {
     await Future.delayed(const Duration(seconds: 2));
     // await Future.delayed(const Duration(seconds: 1));
 
-    Get.offAll(() => Dashboard());
+    Get.offAll(() => SignIn());
   }
 
   @override
